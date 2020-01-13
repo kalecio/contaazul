@@ -7,7 +7,7 @@ class controller {
 	}
 
 	public function loadTemplate($viewName, $viewData = array()) {
-		require 'views/template.php';
+		//require 'views/template.php';
 	}
 
 	public function loadViewInTemplate($viewName, $viewData = array()) {

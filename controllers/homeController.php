@@ -15,7 +15,7 @@ class homeController extends controller
 	public function index()
 	{
 		$dados = array();
-		$u = new Users();
+		
 		$this->loadTemplate('home', $dados);
 	}
 }
