@@ -1,8 +1,10 @@
-<?php /*CONTROLLER DA TELA INICIAL DE LOGIN, VERIFICAÇÃO DOS DADOS INICAIS SE ESTÃO CADASTRADOS NO BANCOS*/
-class loginController extends controller
-{
-    public function index()
-    {
+<?php
+
+/* CONTROLLER DA TELA INICIAL DE LOGIN, VERIFICAÇÃO DOS DADOS INICAIS SE ESTÃO CADASTRADOS NO BANCOS */
+
+class loginController extends controller {
+
+    public function index() {
         if (isset($_POST['email']) && !empty($_POST['email'])) {
             $email = addslashes($_POST['email']);
             $pass = addslashes($_POST['password']);
@@ -17,4 +19,7 @@ class loginController extends controller
         $data = array();
         $this->loadView('login', $data);
     }
+
 }
+
+?>
