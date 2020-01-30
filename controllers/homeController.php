@@ -3,7 +3,7 @@
 class homeController extends controller {
 
     public function __construct() {
-        // parent::__construct();
+         //parent::__construct();
 
         $u = new Users();
         if ($u->isLogged() == false) {
