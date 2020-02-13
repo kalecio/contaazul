@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Painel - <?php echo $viewData['company_name'] ?></title></head>
-
+        <meta charset="UTF-8">
+        <title>Galeria de Fotos</title>
+    </head>
     <body>
-        <?php $this->loadViewTemplate($viewName, $viewData); ?>
+        <?php
+        $this->loadViewInTemplate($viewName, $viewData);
+        ?>
     </body>
 </html>
-
-
