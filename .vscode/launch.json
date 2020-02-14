@@ -4,23 +4,17 @@
     // Para obter mais informações, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Launch Program",
-        "program": "${workspaceFolder}/app.js",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
         {
-            "type": "node",
+            "type": "php",
             "request": "launch",
-            "name": "Executar Programa",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
+        },
+        {
+            "type": "php",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
         }
     ]
 }

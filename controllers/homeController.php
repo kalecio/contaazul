@@ -13,11 +13,15 @@ class homeController extends controller
 
     public function index()
     {
-        $dados = array();
+        $data = array();
+        $user = new Users();
+        $user->setLoggedUser();
+        $company = new Companies($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $user->getEmail();
 
 
 
-
-        $this->loadTemplate('home', $dados);
+        $this->loadTemplate('home', $data);
     }
 }

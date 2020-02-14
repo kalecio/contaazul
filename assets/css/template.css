@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+.leftmenu {
+    width: 200px;
+    background-color: #1f232a;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.container {
+    padding-left: 200px;
+}
+
+.top {
+    height: 40px;
+    background-color: rgb(206, 11, 11);
+    color: #fff;
+    font-size: 15px;
+}
+
+.top_right {
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.top_right a {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+.company_name {
+    height: 100px;
+    line-height: 100px;
+    font-size: 18px;
+    color: blanchedalmond;
+    text-align: center;
+}

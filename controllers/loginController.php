@@ -12,8 +12,14 @@ class LoginController extends controller
                 header("Location:" . BASE_URL);
             }
         } else {
-            $data['error'] = 'Email ou senha estão incorretos';
+            $data['error'] = 'E-mail ou senha estão incorretos';
         }
         $this->loadview('login', $data);
+    }
+    public function logout()
+    {
+        $user = new Users();
+        $user->logout();
+        header("Location:" . BASE_URL);
     }
 }
