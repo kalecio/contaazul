@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="AreaLogin ">
+    <div class="AreaLogin">
         <form method="post">
             Digite seu email <br>
             <input type="email" class="email" name="email" placeholder="Digite seu email padrão">
@@ -20,7 +20,7 @@
             <?php if (isset($error) && !empty($error)) : ?>
 
                 <!--VERICAÇÃO login e senha ("exibe mensagem caso exista error")-->
-                <div class="warning"> <?php echo $error; ?> Login ou senha incorretos</div>
+                <div class="warning"> <?php echo $error; ?></div>
             <?php endif; ?>
         </form>
     </div>
