@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Painel - <?php echo $viewData['company_name'] ?></title>
-    <link href="<?php echo BASE_URL; ?>/assets/css/template.css " rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>/assets/css/template.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="leftmenu">
         <div class="company_name">
             <?php echo $viewData['company_name'] ?>
+    </div>
+    <div class="menuarea">
+        <ul>
+            <li> <a href="<?php echo BASE_URL . '/'; ?> ">Home </a></li>
+            <li><a href="<?php echo BASE_URL . '/permisions'; ?> ">Permissões</a> </li>
+        </ul>
         </div>
     </div>
     <div class="container">
