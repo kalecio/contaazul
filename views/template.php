@@ -13,7 +13,7 @@
     </div>
     <div class="menuarea">
         <ul>
-            <li> <a href="<?php echo BASE_URL . '/'; ?> ">Home </a></li>
+            <li > <a href="<?php echo BASE_URL . '/'; ?> ">Home </a></li>
             <li><a href="<?php echo BASE_URL . '/permisions'; ?> ">Permissões</a> </li>
         </ul>
         </div>
@@ -23,6 +23,9 @@
 
             <div class="top_right"> <a href="<?php echo BASE_URL . '/login/logout'; ?> ">SAIR </a> </div>
             <div class="top_right"> <?php echo $viewData['user_email']; ?> </div>
+        </div>
+        <div class="area">
+<?php $this->loadViewInTemplate($viewName, $viewData); ?>
         </div>
     </div>
 </body>

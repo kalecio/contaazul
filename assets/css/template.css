@@ -62,7 +62,10 @@ body {
     line-height: 40px;
     border-bottom: 1px solid #999;
     font-size: 14px;
-    padding-left: 30px;
+    padding-left: 33px;
+    background-size:  20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 13px;
     
 }
 .menuarea li:hover{
@@ -72,4 +75,15 @@ body {
     color :#fff;
     text-decoration: none;
     display: block;
+}
+/*criação de imagens via css*/
+.menuarea li:nth-child(1){
+    background-image: url('../images/Home-128.png');
+
+
+}
+.menuarea li:nth-child(2){
+    background-image: url('../images/Login.png');
+    
+
 }
