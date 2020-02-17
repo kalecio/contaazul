@@ -24,5 +24,4 @@ class Companies extends model
             return '';
         }
     }
-    
 }

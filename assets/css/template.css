@@ -48,42 +48,66 @@ body {
 
 
 /* MENU */
+
 .menuarea {
-    color:#ffffff;
+    color: #ffffff;
 }
+
 .menuarea ul {
-    margin :0;
+    margin: 0;
     padding: 0;
     list-style: none;
-    
 }
+
 .menuarea li {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #999;
     font-size: 14px;
     padding-left: 33px;
-    background-size:  20px 20px;
+    background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 13px;
-    
 }
-.menuarea li:hover{
-    background-color: black;;
+
+.menuarea li:hover {
+    background-color: black;
+    ;
 }
-.menuarea li a{
-    color :#fff;
+
+.menuarea li a {
+    color: #fff;
     text-decoration: none;
     display: block;
 }
+
+
 /*criação de imagens via css*/
-.menuarea li:nth-child(1){
+
+.menuarea li:nth-child(1) {
     background-image: url('../images/Home-128.png');
-
-
 }
-.menuarea li:nth-child(2){
-    background-image: url('../images/Login.png');
-    
 
+.menuarea li:nth-child(2) {
+    background-image: url('../images/Login.png');
+}
+
+.area {
+    padding: 15px;
+}
+
+.tabitem {
+    float: left;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #1f232a;
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+.activetab {
+    border-bottom: solid #fff;
+    background-color: #fff;
 }

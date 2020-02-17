@@ -4,8 +4,7 @@ try {
 	$dbuser = "root";
 	$dbpass = "";
 	$pdo = new PDO($dsn, $dbuser, $dbpass);
-
-} catch(PDOException $e) {
+} catch (PDOException $e) {
 	die($e->getMessage());
 }
 ?>
@@ -14,17 +13,16 @@ try {
 $sql = "SELECT * FROM posts LIMIT 10";
 $sql = $pdo->query($sql);
 
-if($sql->rowCount() > 0) {
+if ($sql->rowCount() > 0) {
 
-	foreach($sql->fetchAll() as $post) {
+	foreach ($sql->fetchAll() as $post) {
 
-		?>
+?>
 		<h3><?php echo $post['titulo']; ?></h3>
 		<?php echo $post['corpo']; ?>
-		<hr/>
-		<?php
+		<hr />
+<?php
 
 	}
-
 }
 ?>
