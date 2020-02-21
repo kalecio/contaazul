@@ -16,6 +16,19 @@ class LoginController extends controller
         }
         $this->loadview('login', $data);
     }
+    // public function logout()
+    // {
+    //     $user = new Users();
+    //     $user->setLoggedUser();
+    //     if ($user->hasPermission('logout')) {
+    //         $user->logout();
+    //         header("Location:" . BASE_URL);
+    //     } else {
+    //         echo "Não pode fazer logout no momento";
+    //         exit;
+    //     }
+    // }
+    /* função essa será utilziada cso não necessidte de uma permissão extra para fazer o logout*/
     public function logout()
     {
         $user = new Users();

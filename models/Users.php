@@ -2,6 +2,7 @@
 class Users extends model
 {
     private $userInfo;
+    private $permissions;
     public function isLogged()
     {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
@@ -35,6 +36,8 @@ class Users extends model
             $sql->execute();
             if ($sql->rowCount() > 0) {
                 $this->userInfo = $sql->fetch();
+                $this->permissions = new Permissions();
+                $this->permissions->setGroup($this->userInfo['group'], $this->userInfo['id_company']);
             }
         }
     }
@@ -57,5 +60,9 @@ class Users extends model
     public function logout()
     {
         unset($_SESSION['ccUser']);
+    }
+    public function hasPermission($name)
+    {
+        return $this->permissions->hasPermissions($name);
     }
 }

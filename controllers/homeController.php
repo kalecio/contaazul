@@ -1,5 +1,5 @@
 <?php
-class homeController extends controller
+class homeController  extends controller
 {
 
     public function __construct()
@@ -23,5 +23,5 @@ class homeController extends controller
 
 
         $this->loadTemplate('home', $data);
-    }
+    } 
 }
