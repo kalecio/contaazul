@@ -1,5 +1,5 @@
 <?php
-class Permissions extends model
+class PermissionsModels extends model
 {
 
     private $group;
@@ -42,5 +42,44 @@ class Permissions extends model
         } else {
             return false;
         }
+    }
+    public function getList($id_company)
+    {
+        $array = array();
+
+        $sql = $this->db->prepare("SELECT * FROM permission_params WHERE id_company = :id_company");
+        $sql->bindValue(':id_company', $id_company);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+    public function getGroupList($id_company)
+    {
+        $array = array();
+
+        $sql = $this->db->prepare("SELECT * FROM permission_groups WHERE id_company = :id_company");
+        $sql->bindValue(':id_company', $id_company);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+    public function add($name, $id_company)
+    {
+        $sql = $this->db->prepare("INSERT INTO permission_params SET name = :name, id_company = :id_company");
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+    }
+    public function delete($id)
+    {
+        $sql = $this->db->prepare("DELETE FROM permission_params WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
     }
 }

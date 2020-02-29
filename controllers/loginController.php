@@ -7,7 +7,7 @@ class LoginController extends controller
         if (isset($_POST['email']) && !empty($_POST['email'])) {
             $email = addslashes($_POST['email']);
             $pass = addslashes($_POST['password']);
-            $user = new Users();
+            $user = new UsersModels();
             if ($user->doLogin($email, $pass)) {
                 header("Location:" . BASE_URL);
             }
@@ -31,7 +31,7 @@ class LoginController extends controller
     /* função essa será utilziada cso não necessidte de uma permissão extra para fazer o logout*/
     public function logout()
     {
-        $user = new Users();
+        $user = new UsersModels();
         $user->logout();
         header("Location:" . BASE_URL);
     }
