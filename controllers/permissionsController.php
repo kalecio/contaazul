@@ -56,7 +56,8 @@ class PermissionsController extends controller
             header("Location:" . BASE_URL);
         }
     }
-    public function add_group(){
+    public function add_group()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -72,16 +73,15 @@ class PermissionsController extends controller
                 $pname = addslashes($_POST['name']);
                 $permissions->add($pname, $user->getCompany());
                 header("Location: " . BASE_URL . "/permissions");
-
             }
             $data['permissions_list'] = $permissions->getList($user->getCompany());
-            
+
             $this->loadTemplate('permissions_addgroup', $data);
         } else {
             header("Location:" . BASE_URL);
         }
     }
-   
+
 
 
 
@@ -101,10 +101,8 @@ class PermissionsController extends controller
             $permissions = new PermissionsModels();
             $permissions->delete($id);
             header("Location: " . BASE_URL . "/permissions");
-            
         } else {
             header("Location:" . BASE_URL);
         }
     }
-    
 }
