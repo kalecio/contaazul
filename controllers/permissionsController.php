@@ -19,10 +19,7 @@ class PermissionsController extends controller
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-
-
         if ($user->hasPermission('permissions_view')) {
-
             $permissions = new PermissionsModels();
             $data['permissions_list'] = $permissions->getList($user->getCompany());
             $data['permissions_groups_list'] = $permissions->getGroupList($user->getCompany());
@@ -81,11 +78,6 @@ class PermissionsController extends controller
             header("Location:" . BASE_URL);
         }
     }
-
-
-
-
-
     public function delete($id)
     {
 
