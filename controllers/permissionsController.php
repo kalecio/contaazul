@@ -37,17 +37,13 @@ class PermissionsController extends controller
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-
-
         if ($user->hasPermission('permissions_view')) {
-
             $permissions = new PermissionsModels();
             if (isset($_POST['name']) && !empty($_POST['name'])) {
                 $pname = addslashes($_POST['name']);
                 $permissions->add($pname, $user->getCompany());
                 header("Location: " . BASE_URL . "/permissions");
             }
-
             $this->loadTemplate('permissions_add', $data);
         } else {
             header("Location:" . BASE_URL);
