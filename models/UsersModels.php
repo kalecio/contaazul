@@ -30,7 +30,6 @@ class UsersModels extends model
     {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
             $id = $_SESSION['ccUser'];
-
             $sql = $this->db->prepare("SELECT * FROM users where id = :id");
             $sql->bindValue(':id', $id);
             $sql->execute();

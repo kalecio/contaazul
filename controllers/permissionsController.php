@@ -57,10 +57,7 @@ class PermissionsController extends controller
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-
-
         if ($user->hasPermission('permissions_view')) {
-
             $permissions = new PermissionsModels();
             if (isset($_POST['name']) && !empty($_POST['name'])) {
                 $pname = addslashes($_POST['name']);
@@ -84,8 +81,7 @@ class PermissionsController extends controller
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
 
-
-        if ($user->hasPermission('permissions_group')) {
+        if ($user->hasPermission('permissions_view')) {
             $permissions = new PermissionsModels();
             $permissions->delete($id);
             header("Location: " . BASE_URL . "/permissions");
