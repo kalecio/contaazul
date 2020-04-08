@@ -62,14 +62,14 @@
         line-height: 40px;
         border-bottom: 1px solid #999;
         font-size: 14px;
-        padding-left: 33px;
+        padding-left: 45px;
         background-size: 20px 20px;
         background-repeat: no-repeat;
         background-position: 10px 13px;
     }
     
     .menuarea li:hover {
-        background-color: black;
+        background-color: rgb(8, 160, 206);
         ;
     }
     
@@ -200,7 +200,7 @@
     table td {
         margin-top: 50px;
         margin: 2px;
-        height: 50px;
+        height: 60px;
         line-height: 40px;
         background-color: #EEE;
         font-size: 12px;

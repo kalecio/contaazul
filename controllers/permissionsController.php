@@ -89,4 +89,6 @@ class PermissionsController extends controller
             header("Location:" . BASE_URL);
         }
     }
+
+    public function edit_group(){}
 }
