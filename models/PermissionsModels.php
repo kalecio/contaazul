@@ -90,9 +90,16 @@ class PermissionsModels extends model
         $sql->execute();
     }
 
-    public function deleteGroup()
-    
+    public function deleteGroup($id)
+
     {
-        
+        $user = new UsersModels();
+        if ($user->findUsersInGroup($id) == false) {
+            $sql = $this->db->prepare("DELETE FROM permission_groups WHERE id = :id");
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+        } else {
+            echo " error";
+        }
     }
 }

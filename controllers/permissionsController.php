@@ -96,7 +96,7 @@ class PermissionsController extends controller
     {
     }
 
-    public function delete_group()
+    public function delete_group($id)
     {
         $data = array();
         $user = new UsersModels();
