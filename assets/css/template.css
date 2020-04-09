@@ -7,7 +7,7 @@
     
     .leftmenu {
         width: 200px;
-        background-color: #1f232a;
+        background-color: #000000;
         position: absolute;
         left: 0;
         top: 0;
@@ -101,11 +101,13 @@
         border-bottom: 1px solid #1f232a;
         background-color: #EEE;
         cursor: pointer;
+        border-radius: 6px;
     }
     
     .activetab {
         border-bottom: solid #fff;
-        background-color: #fff;
+        background-color: rgb(8, 160, 206);
+        border-radius: 6px;
     }
     
     .tabbody {

@@ -73,10 +73,26 @@ class PermissionsModels extends model
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
     }
+    public function addGroup($name, $plist, $id_company)
+    {
+        $params = implode(',', $plist);
+        $sql = $this->db->prepare("INSERT INTO permission_groups SET name = :name, id_company = :id_company, params =:params");
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":params", $params);
+        $sql->execute();
+    }
+
     public function delete($id)
     {
         $sql = $this->db->prepare("DELETE FROM permission_params WHERE id = :id");
         $sql->bindValue(":id", $id);
         $sql->execute();
+    }
+
+    public function deleteGroup()
+    
+    {
+        
     }
 }

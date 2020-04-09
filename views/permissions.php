@@ -33,8 +33,6 @@
                             <div class="button button-Editar"><a href="<?php echo BASE_URL; ?>/permissions/edit_group/<?php echo $p['id']; ?>" onclick=" return confirm('Tem certeza que deseja editar esta');">Editar</a> </div>
                         </td>
                     </tr>
-
-
                 <?php endforeach; ?>
             </table>
         </div>
@@ -55,8 +53,6 @@
 
                         </td>
                     </tr>
-
-
                 <?php endforeach; ?>
             </table>
         </div>

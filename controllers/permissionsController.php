@@ -61,7 +61,9 @@ class PermissionsController extends controller
             $permissions = new PermissionsModels();
             if (isset($_POST['name']) && !empty($_POST['name'])) {
                 $pname = addslashes($_POST['name']);
-                $permissions->add($pname, $user->getCompany());
+                $plist = $_POST['permissions'];
+
+                $permissions->addGroup($pname, $plist, $user->getCompany());
                 header("Location: " . BASE_URL . "/permissions");
             }
             $data['permissions_list'] = $permissions->getList($user->getCompany());
@@ -90,5 +92,26 @@ class PermissionsController extends controller
         }
     }
 
-    public function edit_group(){}
+    public function edit_group()
+    {
+    }
+
+    public function delete_group()
+    {
+        $data = array();
+        $user = new UsersModels();
+        $user->setLoggedUser();
+        $company = new CompaniesModels($user->getCompany);
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $user->getEmail();
+
+
+        if ($user->hasPermission('permissions_view')) {
+            $permissions = new PermissionsModels();
+            $permissions->deleteGroup($id);
+            header("Location: " . BASE_URL . "/permissions");
+        } else {
+            header("Location" . BASE_URL);
+        }
+    }
 }

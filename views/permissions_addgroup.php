@@ -8,7 +8,7 @@
     <label> Permissões </label> <br />
     <?php foreach ($permissions_list as $p) : ?>
         <div class="p_item">
-            <input type="checkbox" name="permissions[]" value="<?php echo $p['name']; ?> " id="p_<?php echo $p['id']; ?>" />
+            <input type="checkbox" name="permissions[]" value="<?php echo $p['id']; ?> " id="p_<?php echo $p['id']; ?>" />
             <label for="p_<?php echo $p['id']; ?>"><?php echo $p['name']; ?> <br /> </label>
         </div>
 
