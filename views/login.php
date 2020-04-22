@@ -24,11 +24,9 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="password">
             </div>
 
-            <?php if (isset($error) && !empty($error)) : ?>
-
-                <!--VERICAÇÃO login e senha ("exibe mensagem caso exista error")-->
-                <div class="warning"> <?php echo $error; ?></div>
-            <?php endif; ?>
+            <?php if(isset($error) && !empty($error)): ?>
+        		<div class="warning"><?php echo $error; ?></div>
+        		<?php endif; ?>
             <br>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>

@@ -105,7 +105,6 @@ class PermissionsController extends controller
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
 
-
         if ($user->hasPermission('permissions_view')) {
             $permissions = new PermissionsModels();
             $permissions->deleteGroup($id);
