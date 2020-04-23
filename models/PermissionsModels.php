@@ -5,6 +5,47 @@ class PermissionsModels extends model
     private $group;
     private $permissions;
 
+
+
+    public function hasPermissions($name)
+    {
+        if (in_array($name, $this->permissions)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getList($id_company)
+    {
+        $array = array();
+
+        $sql = $this->db->prepare("SELECT * FROM permission_params WHERE id_company = :id_company");
+        $sql->bindValue(':id_company', $id_company);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+
+    public function add($name, $id_company)
+    {
+        $sql = $this->db->prepare("INSERT INTO permission_params SET name = :name, id_company = :id_company");
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+    }
+
+    public function delete($id)
+    {
+        $sql = $this->db->prepare("DELETE FROM permission_params WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
+
+    /* PARTE DA CRIAÇÃO E EDIÇÃO E DELEÇÃO DOS CAMPOS  DE GRUPOS*/
     public function setGroup($id, $id_company)
     {
         $this->group = $id;
@@ -32,45 +73,6 @@ class PermissionsModels extends model
         // print_r($this->permissions);
         //die(var_dump($this->permissions));
     }
-
-    public function hasPermissions($name)
-    {
-        if (in_array($name, $this->permissions)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function getList($id_company)
-    {
-        $array = array();
-
-        $sql = $this->db->prepare("SELECT * FROM permission_params WHERE id_company = :id_company");
-        $sql->bindValue(':id_company', $id_company);
-        $sql->execute();
-
-        if ($sql->rowCount() > 0) {
-            $array = $sql->fetchAll();
-        }
-        return $array;
-    }
-
-      public function add($name, $id_company)
-    {
-        $sql = $this->db->prepare("INSERT INTO permission_params SET name = :name, id_company = :id_company");
-        $sql->bindValue(":name", $name);
-        $sql->bindValue(":id_company", $id_company);
-        $sql->execute();
-    }
-
-    public function delete($id)
-    {
-        $sql = $this->db->prepare("DELETE FROM permission_params WHERE id = :id");
-        $sql->bindValue(":id", $id);
-        $sql->execute();
-    }
-
     public function addGroup($name, $plist, $id_company)
     {
         $params = implode(',', $plist);
@@ -80,7 +82,7 @@ class PermissionsModels extends model
         $sql->bindValue(":params", $params);
         $sql->execute();
     }
-    
+
     public function getGroup($id, $id_company)
     {
         $array = array();
