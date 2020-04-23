@@ -49,30 +49,6 @@ class PermissionsController extends controller
             header("Location:" . BASE_URL);
         }
     }
-    public function add_group()
-    {
-        $data = array();
-        $user = new UsersModels();
-        $user->setLoggedUser();
-        $company = new CompaniesModels($user->getCompany());
-        $data['company_name'] = $company->getName();
-        $data['user_email'] = $user->getEmail();
-        if ($user->hasPermission('permissions_view')) {
-            $permissions = new PermissionsModels();
-            if (isset($_POST['name']) && !empty($_POST['name'])) {
-                $pname = addslashes($_POST['name']);
-                $plist = $_POST['permissions'];
-
-                $permissions->addGroup($pname, $plist, $user->getCompany());
-                header("Location: " . BASE_URL . "/permissions");
-            }
-            $data['permissions_list'] = $permissions->getList($user->getCompany());
-
-            $this->loadTemplate('permissions_addgroup', $data);
-        } else {
-            header("Location:" . BASE_URL);
-        }
-    }
     public function delete($id)
     {
 
@@ -91,9 +67,58 @@ class PermissionsController extends controller
             header("Location:" . BASE_URL);
         }
     }
-
-    public function edit_group()
+    public function add_group()
     {
+        $data = array();
+        $user = new UsersModels();
+        $user->setLoggedUser();
+        $company = new CompaniesModels($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $user->getEmail();
+
+        if ($user->hasPermission('permissions_view')) {
+            $permissions = new PermissionsModels();
+
+            if (isset($_POST['name']) && !empty($_POST['name'])) {
+                $pname = addslashes($_POST['name']);
+                $plist = $_POST['permissions'];
+
+                $permissions->addGroup($pname, $plist, $user->getCompany());
+                header("Location: " . BASE_URL . "/permissions");
+            }
+            $data['permissions_list'] = $permissions->getList($user->getCompany());
+
+            $this->loadTemplate('permissions_addgroup', $data);
+        } else {
+            header("Location:" . BASE_URL);
+        }
+    }
+
+
+    public function edit_group($id)
+    {
+        $data = array();
+        $user = new UsersModels();
+        $user->setLoggedUser();
+        $company = new CompaniesModels($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $user->getEmail();
+        if ($user->hasPermission('permissions_view')) {
+            $permissions = new PermissionsModels();
+            if (isset($_POST['name']) && !empty($_POST['name'])) {
+                $pname = addslashes($_POST['name']);
+                $plist = $_POST['permissions'];
+
+                $permissions->editGroup($pname, $plist, $id, $user->getCompany());
+                header("Location: " . BASE_URL . "/permissions");
+            }
+            $data['permissions_list'] = $permissions->getList($user->getCompany());
+            $data['group_info'] = $permissions->getGroup($id, $user->getCompany());
+
+            $this->loadTemplate('permissions_editgroup', $data);
+        } else {
+            header("Location:" . BASE_URL);
+        }
     }
 
     public function delete_group($id)
