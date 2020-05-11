@@ -23,9 +23,9 @@
                 <label for="exampleInputPassword1">Senha</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="password">
             </div>
-                <!-- COMANDO PHP PARA EMITIR ERRO CASO NÃO ESTEJA CADASTRADO EM SISTEMA-->
+            <!-- COMANDO PHP PARA EMITIR ERRO CASO NÃO ESTEJA CADASTRADO EM SISTEMA-->
             <?php if (isset($error) && !empty($error)) : ?>
-                <div  class="alert alert-warning" role="alert"><?php echo $error; ?></div>
+                <div class="alert alert-warning" role="alert"><?php echo $error; ?></div>
             <?php endif; ?>
             <br>
             <button type="submit" class="btn btn-primary">Entrar</button>
