@@ -77,4 +77,27 @@ class UsersModels extends model
             return true;
         }
     }
+    // retornando dados da lista de usuários em tela de usuários
+    public function getList($id_company)
+    {
+        $array = array();
+
+        $sql = $this->db->prepare("
+			SELECT
+				users.id,
+				users.email,
+				permission_groups.name
+			FROM users
+			LEFT JOIN permission_groups ON permission_groups.id = users.id_company
+			WHERE
+			users.id_company = :id_company");
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+    }
 }
