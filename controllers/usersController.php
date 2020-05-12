@@ -20,11 +20,27 @@ class UsersController extends controller
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
         if ($user->hasPermission('users_view')) {
-            // $permissions = new PermissionsModels();
-            // $data['permissions_list'] = $permissions->getList($user->getCompany());
-            // $data['permissions_groups_list'] = $permissions->getGroupList($user->getCompany());
+            $data['users_list'] = $user->getList($user->getCompany());
             $this->loadTemplate('users', $data);
             // die(var_dump($data));
+        } else {
+            header("Location:" . BASE_URL);
+        }
+    }
+    /*FUNÇÃO REQUERIDA PARA SALVAR NOVOS USUARIOS NO BANCO*/
+    public function add()
+    {
+        $data = array();
+        $user = new UsersModels();
+        $user->setLoggedUser();
+        $company = new CompaniesModels($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $user->getEmail();
+
+        if ($user->hasPermission('users_view')) {
+            $p = new PermissionsModels();
+            $data['group_list'] = $p->getGroupList($user->getCompany());
+            $this->loadTemplate('users_add', $data);
         } else {
             header("Location:" . BASE_URL);
         }
