@@ -100,4 +100,22 @@ class UsersModels extends model
 
         return $array;
     }
+    public function add($email, $pass, $group, $id_company)
+    {
+        $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE email = :email");
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+        $row = $sql->fetch();
+
+        if ($row['c'] == '0') {
+            $sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company =
+            :id_company");
+           
+            $sql->bindValue(":email", $email);
+            $sql->bindValue(":password", base64_encode($pass));
+            $sql->bindValue(":id_group", $group);
+            $sql->bindValue(":id_company", $id_company);
+            $sql->execute();
+        }
+    }
 }

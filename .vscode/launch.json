@@ -2,19 +2,20 @@
     // Use o IntelliSense para aprender sobre possíveis atributos.
     // Passe o mouse para ver as descrições dos atributos existentes.
     // Para obter mais informações, visite: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "php",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js",
-        },
-        {
-            "type": "php",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js",
-        }
-    ]
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Launch localhost",
+                "type": "firefox",
+                "request": "launch",
+                "reAttach": true,
+                "url": "http://localhost/contaazul",
+                "pathMappings": [{
+                    "url": "http://localhost",
+                    "path": "${workspaceFolder}"
+                }]
+            }
+        ]
+    }
 }
