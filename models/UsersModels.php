@@ -100,6 +100,8 @@ class UsersModels extends model
 
         return $array;
     }
+
+    /*FUNÇÃO PARA ADICIONAR NOVOS EMAILS E VERIFICAÇÃO DO GRUPO*/
     public function add($email, $pass, $group, $id_company)
     {
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE email = :email");
