@@ -1,4 +1,4 @@
-<h1>Permissoes - Adicionar Grupo de Permissões</h1>
+<h1>Permissões - Adicionar Grupo de Permissões</h1>
 
 <form method="post">
     <label> Nome do grupo de permissões <br>

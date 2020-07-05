@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1> Permissoes </h1>
+    <h1> Permissões </h1>
 
     <div class="tabarea">
         <div class="tabitem activetab"> Grupos de Permissões</div>

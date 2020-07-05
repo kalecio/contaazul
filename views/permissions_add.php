@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Permissoes - Adicionar</h1>
+    <h1>Permissões - Adicionar</h1>
 
     <form method="post">
         <label> Nome da Permissão <br>

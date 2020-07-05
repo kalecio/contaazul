@@ -33,7 +33,9 @@ class LoginController extends controller
     //         exit;
     //     }
     // }
-    /* função essa será utilziada cso não necessidte de uma permissão extra para fazer o logout*/
+	
+	
+    /* função essa será utilziada caso não necessite de uma permissão extra para fazer o logout*/
     public function logout()
     {
         $user = new UsersModels();

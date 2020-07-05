@@ -1,11 +1,8 @@
 <?php
 class PermissionsModels extends model
 {
-
     private $group;
     private $permissions;
-
-
 
     public function hasPermissions($name)
     {
@@ -132,7 +129,7 @@ class PermissionsModels extends model
             $sql->bindValue(":id", $id);
             $sql->execute();
         } else {
-            echo " error";
+            echo "error";
         }
     }
 }

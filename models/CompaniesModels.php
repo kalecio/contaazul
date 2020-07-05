@@ -1,5 +1,4 @@
 <?php
-
 class CompaniesModels extends model
 {
 
