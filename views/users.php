@@ -11,9 +11,10 @@
     </tr>
     <?php foreach ($users_list as $us) : ?>
         <tr>
-            <td><?php echo $us['email']; ?></td>
-            <td width="200px"><?php echo $us['name']; ?></td>
-            <td width="160px">
+		<td ><?php echo $us['email']; ?></td>
+            <td><?php echo $us['name']; ?></td>
+            	
+            <td width="100%">
                 <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $us['id']; ?>">Editar</a></div>
                 <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/delete/<?php echo $us['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a></div>
             </td>

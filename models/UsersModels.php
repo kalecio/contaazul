@@ -48,7 +48,8 @@ class UsersModels extends model
             return 0;
         }
     }
-    public function getEmail()
+    
+	public function getEmail()
     {
         if (isset($this->userInfo['email'])) {
             return $this->userInfo['email'];
@@ -56,15 +57,18 @@ class UsersModels extends model
             return 0;
         }
     }
-    public function logout()
+    
+	public function logout()
     {
         unset($_SESSION['ccUser']);
     }
+	
     public function hasPermission($name)
     {
         return $this->permissions->hasPermissions($name);
     }
-    public function findUsersInGroup($id)
+    
+	public function findUsersInGroup($id)
     {
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE group = :group");
         $sql->bindValue(":group", $id);

@@ -12,13 +12,15 @@
 
     <form method="post">
         <label> Email<br>
-            <input type="email" name="email" />
+            <input type="email" name="email" require />
         </label><br><br>
         <label> Senha<br>
-            <input type="password" name="password" />
+            <input type="password" name="password" require/>
         </label><br><br>
         <label for="group">Grupo de Permissõess</label>
         <select name="group" id="group">
+		
+		<!--  Mostrando resultado de cada usuário vinculado a um grupo-->
             <?php foreach ($group_list as $group) : ?>
                 <option value="<?php echo $group['id']; ?>"> <?php echo $group['name']; ?>
 
