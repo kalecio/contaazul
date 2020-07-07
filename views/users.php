@@ -15,8 +15,8 @@
             <td><?php echo $us['name']; ?></td>
             	
             <td width="100%">
-                <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $us['id']; ?>">Editar</a></div>
-                <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/delete/<?php echo $us['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a></div>
+                <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $us['id']; ?>">Alterar</a></div>
+                <div class="button button_small"><a href="<?php echo BASE_URL; ?>/users/delete/<?php echo $us['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</a></div>
             </td>
         </tr>
     <?php endforeach; ?>

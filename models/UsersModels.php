@@ -86,8 +86,7 @@ class UsersModels extends model
     {
         $array = array();
 
-        $sql = $this->db->prepare("
-			SELECT
+        $sql = $this->db->prepare("SELECT
 				users.id,
 				users.email,
 				permission_groups.name

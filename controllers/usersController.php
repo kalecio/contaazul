@@ -39,20 +39,26 @@ class UsersController extends controller
 
         if ($user->hasPermission('users_view')) {
             $p = new PermissionsModels();
-			if(isset($_POST['email']) && !empty($_POST['email'])){
-				$email = addslashes($_POST['email']);
-				$pass =addslashes($_POST['password']);
-				$group =addslashes($_POST['group']);
-				$user->add($email, $pass, $group, $user->getCompany());
-				header("Location:".BASE_URL."/users");
-			}
-			
+
+            if (isset($_POST['email']) && !empty($_POST['email'])) {
+                $email = addslashes($_POST['email']);
+                $pass  = addslashes($_POST['password']);
+                $group = addslashes($_POST['group']);
+
+                $a = $user->add($email, $pass, $group, $user->getCompany());
+
+                if ($a == '1') {
+                    header("Location: " . BASE_URL . "/users");
+                } else {
+                    $data['error_msg'] = "Usuário já existe!";
+                }
+            }
+
             $data['group_list'] = $p->getGroupList($user->getCompany());
-            
+
             $this->loadTemplate('users_add', $data);
         } else {
-            header("Location:" . BASE_URL);
+            header("Location: " . BASE_URL);
         }
     }
 }
-?>
