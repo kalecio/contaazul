@@ -48,6 +48,7 @@ class UsersController extends controller
 			}
 			
             $data['group_list'] = $p->getGroupList($user->getCompany());
+            
             $this->loadTemplate('users_add', $data);
         } else {
             header("Location:" . BASE_URL);

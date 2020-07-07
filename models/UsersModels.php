@@ -48,8 +48,8 @@ class UsersModels extends model
             return 0;
         }
     }
-    
-	public function getEmail()
+
+    public function getEmail()
     {
         if (isset($this->userInfo['email'])) {
             return $this->userInfo['email'];
@@ -57,18 +57,18 @@ class UsersModels extends model
             return 0;
         }
     }
-    
-	public function logout()
+
+    public function logout()
     {
         unset($_SESSION['ccUser']);
     }
-	
+
     public function hasPermission($name)
     {
         return $this->permissions->hasPermissions($name);
     }
-    
-	public function findUsersInGroup($id)
+
+    public function findUsersInGroup($id)
     {
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE group = :group");
         $sql->bindValue(":group", $id);
@@ -108,20 +108,23 @@ class UsersModels extends model
     /*FUNÇÃO PARA ADICIONAR NOVOS EMAILS E VERIFICAÇÃO DO GRUPO*/
     public function add($email, $pass, $group, $id_company)
     {
-        $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE email = :email");
+        $sql = $this->db->prepare("SELECT COUNT(*) as c FROM users WHERE email = :email");
         $sql->bindValue(":email", $email);
         $sql->execute();
         $row = $sql->fetch();
 
         if ($row['c'] == '0') {
-            $sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company =
-            :id_company");
-           
+
+            $sql = $this->db->prepare("INSERT INTO users SET email = :email, password = :password, id_group = :id_group, id_company = :id_company");
             $sql->bindValue(":email", $email);
-            $sql->bindValue(":password", base64_encode($pass));
+            $sql->bindValue(":password", md5($pass));
             $sql->bindValue(":id_group", $group);
             $sql->bindValue(":id_company", $id_company);
             $sql->execute();
+
+            return '1';
+        } else {
+            return '0';
         }
     }
 }
