@@ -63,6 +63,8 @@ class ClientsController extends controller
             }
 
             /*tentar modificar para os parametros de FILTER_INPUT*/
+
+            /*inclusão de parametros de segurança via ADDSLASHES*/
             $this->loadTemplate('clients_add', $data);
             //die(var_dump($data));
         } else {

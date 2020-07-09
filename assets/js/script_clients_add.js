@@ -25,6 +25,6 @@ $('input[name=address_zipcode]').on('blur', function () {
             }
         }
     });
-/*terminar de configurar API do sistema de CEP*/
-/*organização da API DO SISTEMA*/
+    /*terminar de configurar API do sistema de CEP*/
+    /*organização da API DO SISTEMA*/
 });
