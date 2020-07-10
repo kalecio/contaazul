@@ -18,7 +18,7 @@
             <option value="<?php echo $g['id']; ?>"><?php echo $g['name']; ?></option>
         <?php endforeach; ?>
     </select><br /><br />
-
+            
     <input type="submit" value="Adicionar" />
 
 </form>

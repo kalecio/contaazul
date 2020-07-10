@@ -48,9 +48,11 @@ class UsersController extends controller
                 $a = $user->add($email, $pass, $group, $user->getCompany());
 
                 if ($a == '1') {
+
+                    // $data['error_msg'] = "Usuário salvo com sucesso";
                     header("Location: " . BASE_URL . "/users");
                 } else {
-                    $data['error_msg'] = "Usuário já existe!";
+                    $data['error_msg'] = " Este usuário já está cadastrado no sistema! ";
                 }
             }
 

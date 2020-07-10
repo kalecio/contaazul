@@ -3,6 +3,7 @@ class UsersModels extends model
 {
     private $userInfo;
     private $permissions;
+
     public function isLogged()
     {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
@@ -30,13 +31,13 @@ class UsersModels extends model
     {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
             $id = $_SESSION['ccUser'];
-            $sql = $this->db->prepare("SELECT * FROM users where id = :id");
+            $sql = $this->db->prepare("SELECT * FROM users WHERE id = :id");
             $sql->bindValue(':id', $id);
             $sql->execute();
             if ($sql->rowCount() > 0) {
                 $this->userInfo = $sql->fetch();
                 $this->permissions = new PermissionsModels();
-                $this->permissions->setGroup($this->userInfo['group'], $this->userInfo['id_company']);
+                $this->permissions->setGroup($this->userInfo['id_group'], $this->userInfo['id_company']);
             }
         }
     }
@@ -86,7 +87,7 @@ class UsersModels extends model
     {
         $array = array();
 
-        $sql = $this->db->prepare("SELECT
+        $sql = $this->db->prepare("			SELECT
 				users.id,
 				users.email,
 				permission_groups.name
