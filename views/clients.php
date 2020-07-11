@@ -28,4 +28,4 @@
             </td>
         </tr>
     <?php endforeach; ?>
-</table><!-- LEMBRAR DE POR RESPOSIVIDAE DENTRO DAS VIEWS DO SISTEMA-->
+</table><!-- LEMBRAR DE POR RESPOSIVIDAE DENTRO DAS VIEWS DO SISTEMA web-->
