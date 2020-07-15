@@ -80,7 +80,7 @@
         display: block;
     }
 
-    /*criação de imagens via css*/
+    /*criação de imagens via css para cada item um nova imagme é adicionada, conforme a necessidade*/ 
 
     .menuarea li:nth-child(1) {
         background-image: url('../images/Home-128.png');
