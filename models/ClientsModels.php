@@ -65,6 +65,8 @@ class ClientsModels extends model
 /*organizar query, está fora de semantica*/
 
 
+
+
         $sql->bindValue(":address_city", $address_city);
          $sql->bindValue(":address_country", $address_country);
         $sql->execute();
