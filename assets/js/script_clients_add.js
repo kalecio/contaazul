@@ -1,37 +1,30 @@
-$('input[name=address_zipcode]').on('blur', function(){
-	var cep = $(this).val();
+/*API desenvolvida para buscar cep de cidades do brasil,  utilizando ajax e json 
 
-	$.ajax({
-		url:'http://api.postmon.com.br/v1/cep/'+cep,
-		type:'GET',
-		dataType:'json',
-		success:function(json){
-			if(typeof json.logradouro != 'undefined') {
-				$('input[name=address]').val(json.logradouro);
-				$('input[name=address_neighb]').val(json.bairro);
-				$('input[name=address_city]').val(json.cidade);
-				$('input[name=address_state]').val(json.estado);
-				$('input[name=address_country]').val("Brasil");
-				$('input[name=address_number]').focus();
-			}
-		}
-	});
+* sua maior parte escrita por Ajax e Json foi feito para buscar campos automaticamente assim que se digita o cep da cidade em que se quer cadastrar
+* utilizando api do postmon.com.br para execução do projeto
+* utilizando metodos de zipcode ou CEP dentro do território brasileiro para obtenção de dados em sistema
+
+
+*/
+$('input[name=address_zipcode]').on('blur', function () {
+    var cep = $(this).val();
+
+    $.ajax({
+        url: 'https://api.postmon.com.br/v1/cep/' + cep,
+        type: 'GET',
+        dataType: 'json',
+        success: function (json) {
+            if (typeof json.logradouro != 'undefined') {
+                $('input[name=address]').val(json.logradouro);
+                $('input[name=address_neighb]').val(json.bairro);
+                $('input[name=address_city]').val(json.cidade);
+                $('input[name=address_state]').val(json.estado);
+                $('input[name=address_country]').val("Brasil");
+                $('input[name=address_number]').focus();  // campo para mandar para proximo campo preenchido manualmente pelo usuário do sistema
+
+            }
+        }
+    });
+
+
 });
-function changeState(obj) {
-	var state = $(obj).val();
-
-	$.ajax({
-		url:BASE_URL+'/ajax/get_city_list',
-		type:'GET',
-		data:{state:state},
-		dataType:'json',
-		success:function(json) {
-			var html = '';
-			for(var i in json.cities) {
-				html += '<option value="'+json.cities[i].CodigoMunicipio+'">'+json.cities[i].Nome+'</option>';
-			}
-			$('select[name=address_city]').html(html);
-		}
-	});
-
-}
