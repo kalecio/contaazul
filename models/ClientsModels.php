@@ -62,7 +62,7 @@ class ClientsModels extends model
         $sql->bindValue(":internal_obs", $internal_obs);
         $sql->bindValue(":address_zipcode", $address_zipcode);
         $sql->bindValue(":address", $address);
-
+/*organizar query, está fora de semantica*/
 
 
         $sql->bindValue(":address_city", $address_city);
