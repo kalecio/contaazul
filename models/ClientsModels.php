@@ -17,21 +17,8 @@ class ClientsModels extends model
         return $array;
     }
 
-    public function add(
-        $id_company,
-        $name,
-        $email,
-        $phone,
-        $stars,
-        $internal_obs,
-        $address_zipcode,
-        $address,
-        $address_number,
-        $address_city,
-        $address_state,
-        $address_country,
-        $address_neighb
-    ) {
+    public function add($id_company,$name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country)
+     {
 
         $sql = $this->db->prepare("INSERT INTO clients SET 
             id_company = :id_company,
@@ -41,13 +28,13 @@ class ClientsModels extends model
             address = :address,
             address2 = :address2,
             address_number = :address_number,
-            address_neighb = :address_neighb
+            address_neighb = :address_neighb,
             address_city = :address_city,
             address_state = :address_state,
             address_country = :address_country,
             address_zipcode = :address_zipcode,
             stars = :stars,
-            internal_obs = :internal_obs,
+            internal_obs = :internal_obs
            ");
         $sql->bindValue(":id_company", $id_company);
         $sql->bindValue(":name", $name);
@@ -58,17 +45,11 @@ class ClientsModels extends model
         $sql->bindValue(":address_number", $address_number);
         $sql->bindValue(":address_neighb", $address_neighb);
         $sql->bindValue(":address_city", $address_city);
+        $sql->bindValue(":address_state", $address_state);
+        $sql->bindValue(":address_country", $address_country);
+        $sql->bindValue(":address_zipcode", $address_zipcode);
         $sql->bindValue(":stars", $stars);
         $sql->bindValue(":internal_obs", $internal_obs);
-        $sql->bindValue(":address_zipcode", $address_zipcode);
-        $sql->bindValue(":address", $address);
-/*organizar query, está fora de semantica*/
-
-
-
-
-        $sql->bindValue(":address_city", $address_city);
-         $sql->bindValue(":address_country", $address_country);
         $sql->execute();
     }
 }
