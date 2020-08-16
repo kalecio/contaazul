@@ -1,19 +1,19 @@
 <?php
-class UsersModels extends model
-{
+
+class UsersModels extends model {
+
     private $userInfo;
     private $permissions;
 
-    public function isLogged()
-    {
+    public function isLogged() {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
             return true;
         } else {
             return false;
         }
     }
-    public function doLogin($email, $password)
-    {
+
+    public function doLogin($email, $password) {
         $sql = $this->db->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
         $sql->bindValue(':email', $email);
         $sql->bindValue(':password', md5($password));
@@ -27,8 +27,8 @@ class UsersModels extends model
             return false;
         }
     }
-    public function setLoggedUser()
-    {
+
+    public function setLoggedUser() {
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
             $id = $_SESSION['ccUser'];
             $sql = $this->db->prepare("SELECT * FROM users WHERE id = :id");
@@ -41,8 +41,8 @@ class UsersModels extends model
             }
         }
     }
-    public function getCompany()
-    {
+
+    public function getCompany() {
         if (isset($this->userInfo['id_company'])) {
             return $this->userInfo['id_company'];
         } else {
@@ -50,8 +50,7 @@ class UsersModels extends model
         }
     }
 
-    public function getEmail()
-    {
+    public function getEmail() {
         if (isset($this->userInfo['email'])) {
             return $this->userInfo['email'];
         } else {
@@ -59,18 +58,15 @@ class UsersModels extends model
         }
     }
 
-    public function logout()
-    {
+    public function logout() {
         unset($_SESSION['ccUser']);
     }
 
-    public function hasPermission($name)
-    {
+    public function hasPermission($name) {
         return $this->permissions->hasPermissions($name);
     }
 
-    public function findUsersInGroup($id)
-    {
+    public function findUsersInGroup($id) {
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM users WHERE group = :group");
         $sql->bindValue(":group", $id);
         $sql->execute();
@@ -82,9 +78,9 @@ class UsersModels extends model
             return true;
         }
     }
+
     // retornando dados da lista de usuários em tela de usuários
-    public function getList($id_company)
-    {
+    public function getList($id_company) {
         $array = array();
 
         $sql = $this->db->prepare("			SELECT
@@ -105,9 +101,9 @@ class UsersModels extends model
         return $array;
     }
 
-    /*FUNÇÃO PARA ADICIONAR NOVOS EMAILS E VERIFICAÇÃO DO GRUPO*/
-    public function add($email, $pass, $group, $id_company)
-    {
+    /* FUNÇÃO PARA ADICIONAR NOVOS EMAILS E VERIFICAÇÃO DO GRUPO */
+
+    public function add($email, $pass, $group, $id_company) {
         $sql = $this->db->prepare("SELECT COUNT(*) as c FROM users WHERE email = :email");
         $sql->bindValue(":email", $email);
         $sql->execute();
@@ -127,4 +123,5 @@ class UsersModels extends model
             return '0';
         }
     }
+
 }
