@@ -1,6 +1,6 @@
 <h1>Clientes</h1>
 <?php if ($edit_permission) : //FUNÇÃO PARA VERIFICAR SE O USUÁRIO TEM PERMISSÃO DE ADICIONAR NOVOS CLIENTES
-?>
+    ?>
     <div class="button"><a href="<?php echo BASE_URL; ?>/clients/add">Adicionar Clientes</a> </div>
 <?php endif; ?>
 
