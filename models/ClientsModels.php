@@ -1,9 +1,8 @@
 <?php
 
-class ClientsModels extends model
-{
-    public function getList($offset)
-    {
+class ClientsModels extends model {
+
+    public function getList($offset) {
         $array = array(); // array de retorno
 
         $sql = $this->db->prepare("SELECT * FROM clients "); //LISTAGEM PARA MOSTRAR DE 10 EM 10 CLIENTES
@@ -17,8 +16,7 @@ class ClientsModels extends model
         return $array;
     }
 
-    public function add($id_company,$name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country)
-     {
+    public function add($id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country) {
 
         $sql = $this->db->prepare("INSERT INTO clients SET 
             id_company = :id_company,
@@ -52,4 +50,5 @@ class ClientsModels extends model
         $sql->bindValue(":internal_obs", $internal_obs);
         $sql->execute();
     }
+
 }
