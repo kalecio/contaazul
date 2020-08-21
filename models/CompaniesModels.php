@@ -1,11 +1,10 @@
 <?php
-class CompaniesModels extends model
-{
+
+class CompaniesModels extends model {
 
     private $companyInfo;
 
-    public function __construct($id)
-    {
+    public function __construct($id) {
         parent::__construct();
         $sql = $this->db->prepare("SELECT * FROM companies WHERE id = :id");
         $sql->bindValue(':id', $id);
@@ -15,12 +14,12 @@ class CompaniesModels extends model
         }
     }
 
-    public function getName()
-    {
+    public function getName() {
         if (isset($this->companyInfo['name'])) {
             return $this->companyInfo['name'];
         } else {
             return '';
         }
     }
+
 }
