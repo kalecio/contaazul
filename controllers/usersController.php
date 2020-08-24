@@ -1,8 +1,8 @@
 <?php
-class UsersController extends controller
-{
-    public function __construct()  /*função para importa o banco de dados */
-    {
+
+class UsersController extends controller {
+
+    public function __construct() /* função para importa o banco de dados */ {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -11,8 +11,7 @@ class UsersController extends controller
         }
     }
 
-    public function index()
-    {
+    public function index() {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -27,9 +26,10 @@ class UsersController extends controller
             header("Location:" . BASE_URL);
         }
     }
-    /*FUNÇÃO REQUERIDA PARA SALVAR NOVOS USUARIOS NO BANCO*/
-    public function add()
-    {
+
+    /* FUNÇÃO REQUERIDA PARA SALVAR NOVOS USUARIOS NO BANCO */
+
+    public function add() {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -42,7 +42,7 @@ class UsersController extends controller
 
             if (isset($_POST['email']) && !empty($_POST['email'])) {
                 $email = addslashes($_POST['email']);
-                $pass  = addslashes($_POST['password']);
+                $pass = addslashes($_POST['password']);
                 $group = addslashes($_POST['group']);
 
                 $a = $user->add($email, $pass, $group, $user->getCompany());
@@ -63,4 +63,5 @@ class UsersController extends controller
             header("Location: " . BASE_URL);
         }
     }
+
 }
