@@ -11,7 +11,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        bottom: -340px;
+        bottom: -615px;
     }
 
     .container {
@@ -211,15 +211,15 @@
         padding-left: 10px;
         padding-right: 10px;
     }
-
+/* visuallização da tabela do item de adicionar novo usuário */ 
     table td {
         margin-top: 50px;
         margin: 2px;
         height: 60px;
-        line-height: 60px;
+        line-height: 40px;
         background-color: #EEE;
         font-size: 12px;
-        padding-left: 130px;
+        padding-left: 67px;
         padding-right: 104px;
         font-size: 14px;
     }

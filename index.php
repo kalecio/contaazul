@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'config.php';
 define('BASE_URL', 'http://localhost/contaazul');
