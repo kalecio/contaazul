@@ -13,7 +13,7 @@
         <th>TELEFONE</th>
         <th>CIDADE</th>
         <th>ESTRELAS</th>
-        <th>Ações</th>
+        <th colspan="2">Ações</th>
     </tr>
     <?php foreach ($clients_list as $clients) : ?>
         <tr>
@@ -24,6 +24,9 @@
 
             <td width="100%">
                 <div class="button button_small"><a href="<?php echo BASE_URL; ?>/clients/edit/<?php echo $clients['id']; ?>">Alterar</a></div>
+
+            </td>
+            <td width="100%">
                 <div class="button button_small"><a href="<?php echo BASE_URL; ?>/clients/delete/<?php echo $clients['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</a></div>
             </td>
         </tr>

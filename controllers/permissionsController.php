@@ -1,8 +1,9 @@
 <?php
 
-class PermissionsController extends controller {
-
-    public function __construct() /* função para importa o banco de dados */ {
+class PermissionsController extends controller
+{
+    public function __construct() /* função para importa o banco de dados */
+    {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -11,7 +12,8 @@ class PermissionsController extends controller {
         }
     }
 
-    public function index() {
+    public function index()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -23,13 +25,14 @@ class PermissionsController extends controller {
             $data['permissions_list'] = $permissions->getList($user->getCompany());
             $data['permissions_groups_list'] = $permissions->getGroupList($user->getCompany());
             $this->loadTemplate('permissions', $data);
-            // die(var_dump($data));
+        // die(var_dump($data));
         } else {
             header("Location:" . BASE_URL);
         }
     }
 
-    public function add() {
+    public function add()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -49,8 +52,8 @@ class PermissionsController extends controller {
         }
     }
 
-    public function delete($id) {
-
+    public function delete($id)
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -67,7 +70,8 @@ class PermissionsController extends controller {
         }
     }
 
-    public function add_group() {
+    public function add_group()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -93,7 +97,8 @@ class PermissionsController extends controller {
         }
     }
 
-    public function edit_group($id) {
+    public function edit_group($id)
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -118,7 +123,8 @@ class PermissionsController extends controller {
         }
     }
 
-    public function delete_group($id) {
+    public function delete_group($id)
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -134,5 +140,4 @@ class PermissionsController extends controller {
             header("Location" . BASE_URL);
         }
     }
-
 }
