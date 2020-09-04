@@ -135,30 +135,31 @@
         outline: 0;
         padding-left: 5px;
         padding-right: 5px;
-        border-radius: 10px
+        border-radius: 5px;
     }
     
     textarea {
         height: 100px;
+        
     }
     
     input[type=submit],
     button,
     .button {
-        margin-top: 50px;
-        border: 0px;
-        background-color: #1f232a;
+        border: 2px;
+        background-color: #2e67d2;
         color: #fff;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 13px;
-        padding-left: 23px;
-        padding-right: 23px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 14px;
         text-decoration: none;
         display: inline-block;
-        margin: 2px;
+        width: 18%;
+        text-align: center;
     }
     
     .button a {
@@ -180,7 +181,25 @@
         text-decoration: none;
         display: inline-block;
         margin-left: 30%;
-        width: 60%;
+        width: 60%; /*utilizado para deixar o botão com o mesmo tamanho independente de quantidade de letras*/
+        text-align: center;
+    }
+    /*UTILIZADO PARA QUANDO SE TEM NECESSIDADE DE CENTRARLIZAR APENAS 1 BOTÃO DENTRO DA TABELA OU GRID*/
+    .button-Excluir_dois {
+        border: 2px;
+        background-color: #2e67d2;
+        color: #fff;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 40%;
+        width: 30%;
         text-align: center;
     }
     
@@ -202,7 +221,7 @@
         text-align: center;
     }
     
-    .button-Alterar {
+    .button-Adicionar {
         border: 2px;
         background-color: #d22e2e;
         color: #fff;
@@ -216,7 +235,7 @@
         text-decoration: none;
         display: inline-block;
         margin-left: 30%;
-        width: 60%;
+        width: 20%;
         text-align: center;
     }
     

@@ -15,7 +15,7 @@
             <input type="text" name="name" />
         </label><br><br>
 
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Adicionar" class="button button-Excluir">
     </form>
 </body>
 
