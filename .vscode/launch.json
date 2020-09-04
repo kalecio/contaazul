@@ -4,7 +4,7 @@
     "configurations": [
         {
             "name": "Launch localhost",
-            "type": "firefox",
+            "type": "chrome",
             "request": "launch",
             "reAttach": true,
             "url": "http://localhost/contaazul",
