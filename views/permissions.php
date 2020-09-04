@@ -23,14 +23,16 @@
             <table border="0" width="100%">
                 <tr>
                     <th>Nome do grupo de permissões</th>
-                    <th width="70%">Ações</th>
+                    <th colspan="2">Ações</th>
                 </tr>
                 <?php foreach ($permissions_groups_list as $p) : ?>
                     <tr>
                         <td><?php echo $p['name']; ?></td>
-                        <td width="100%">
+                        <td >
                             <div class="button button-Excluir"><a href="<?php echo BASE_URL; ?>/permissions/delete_group/<?php echo $p['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir esta permissão?');">Excluir</a> </div>
-                            <div class="button button-Editar"><a href="<?php echo BASE_URL; ?>/permissions/edit_group/<?php echo $p['id']; ?>" onclick=" return confirm('Tem certeza que deseja editar esta');">Editar</a> </div>
+                        </td>
+                        <td>
+                            <div class="button button-Editar"><a href="<?php echo BASE_URL; ?>/permissions/edit_group/<?php echo $p['id']; ?>" onclick=" return confirm('Tem certeza que deseja alterar esta');">Alterar</a> </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>
