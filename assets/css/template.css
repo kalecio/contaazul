@@ -8,10 +8,10 @@
     .leftmenu {
         width: 200px;
         background-color: #353535;
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
-        bottom: -615px;
+        bottom: 0px;
     }
 
     .container {

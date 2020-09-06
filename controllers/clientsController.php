@@ -24,7 +24,7 @@ class ClientsController extends controller
             $clients = new ClientsModels();
 
             $offset = 0;
-            $data['clients_list'] = $clients->getList($offset);  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
+            $data['clients_list'] = $clients->getList($offset, $user->getCompany());  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
 
             $data['edit_permission'] = $user->hasPermission('clients_edit');  //função verificadora, se o usuário tem permissão de adicionar ou de ver o cliente listado ou criar novo
             $this->loadTemplate('clients', $data);
@@ -95,10 +95,11 @@ class ClientsController extends controller
                 $address_city = addslashes($_POST['address_city']);
                 $address_state = addslashes($_POST['address_state']);
                 $address_country = addslashes($_POST['address_country']);
-                $clients->add($user->getCompany(), $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country);
+                
+                $clients->edit($id, $user->getCompany(), $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country);
                 header("Location:" . BASE_URL . "/clients");
             }
-            $data['client_info'] = $clients->getInfo($id);
+            $data['client_info'] = $clients->getInfo($id, $user->getCompany());
 
             $this->loadTemplate('clients_edit', $data);
         //die(var_dump($data));
