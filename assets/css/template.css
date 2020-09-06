@@ -4,7 +4,7 @@
         font-size: 16px;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     .leftmenu {
         width: 200px;
         background-color: #353535;
@@ -13,18 +13,18 @@
         top: 0;
         bottom: -615px;
     }
-    
+
     .container {
         padding-left: 200px;
     }
-    
+
     .top {
         height: 50px;
         background-color: #353535;
         color: #fff;
         font-size: 15px;
     }
-    
+
     .top_right {
         float: right;
         height: 40px;
@@ -32,12 +32,12 @@
         padding-left: 10px;
         padding-right: 10px;
     }
-    
+
     .top_right a {
         text-decoration: none;
         color: #fff;
     }
-    
+
     .company_name {
         height: 100px;
         line-height: 100px;
@@ -45,18 +45,19 @@
         color: #fff;
         text-align: center;
     }
+
     /* MENU */
-    
+
     .menuarea {
         color: #ffffff;
     }
-    
+
     .menuarea ul {
         margin: 0;
         padding: 0;
         list-style: none;
     }
-    
+
     .menuarea li {
         height: 40px;
         line-height: 40px;
@@ -67,39 +68,40 @@
         background-repeat: no-repeat;
         background-position: 10px 13px;
     }
-    
+
     .menuarea li:hover {
         background-color: rgb(8, 160, 206);
         ;
     }
-    
+
     .menuarea li a {
         color: #fff;
         text-decoration: none;
         display: block;
     }
+
     /*criação de imagens via css para cada item um nova imagme é adicionada, conforme a necessidade*/
-    
+
     .menuarea li:nth-child(1) {
         background-image: url('../images/Home-128.png');
     }
-    
+
     .menuarea li:nth-child(2) {
         background-image: url('../images/Login.png');
     }
-    
+
     .menuarea li:nth-child(3) {
         background-image: url('../images/users.png');
     }
-    
+
     .menuarea li:nth-child(4) {
         background-image: url('../images/clients.png');
     }
-    
+
     .area {
         padding: 15px;
     }
-    
+
     .tabitem {
         float: left;
         width: 50%;
@@ -111,18 +113,18 @@
         cursor: pointer;
         border-radius: 6px;
     }
-    
+
     .activetab {
         border-bottom: solid #fff;
         background-color: rgb(8, 160, 206);
         border-radius: 6px;
     }
-    
+
     .tabbody {
         display: none;
         padding-top: 50px;
     }
-    
+
     input[type=text],
     input[type=email],
     input[type=password],
@@ -137,12 +139,12 @@
         padding-right: 5px;
         border-radius: 5px;
     }
-    
+
     textarea {
         height: 100px;
-        
+
     }
-    
+
     input[type=submit],
     button,
     .button {
@@ -161,12 +163,12 @@
         width: 18%;
         text-align: center;
     }
-    
+
     .button a {
         color: #fff;
         text-decoration: none;
     }
-    
+
     .button-Excluir {
         border: 2px;
         background-color: #2e67d2;
@@ -181,9 +183,11 @@
         text-decoration: none;
         display: inline-block;
         margin-left: 30%;
-        width: 60%; /*utilizado para deixar o botão com o mesmo tamanho independente de quantidade de letras*/
+        width: 60%;
+        /*utilizado para deixar o botão com o mesmo tamanho independente de quantidade de letras*/
         text-align: center;
     }
+
     /*UTILIZADO PARA QUANDO SE TEM NECESSIDADE DE CENTRARLIZAR APENAS 1 BOTÃO DENTRO DA TABELA OU GRID*/
     .button-Excluir_dois {
         border: 2px;
@@ -202,7 +206,7 @@
         width: 30%;
         text-align: center;
     }
-    
+
     .button-Editar {
         border: 2px;
         background-color: #d22e2e;
@@ -220,7 +224,7 @@
         width: 60%;
         text-align: center;
     }
-    
+
     .button-Adicionar {
         border: 2px;
         background-color: #d22e2e;
@@ -238,15 +242,15 @@
         width: 20%;
         text-align: center;
     }
-    
+
     label {
         cursor: pointer;
     }
-    
+
     table {
         margin-top: 10px;
     }
-    
+
     table th {
         width: 50%;
         height: 40px;
@@ -256,8 +260,9 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
     /* visuallização da tabela do item de adicionar novo usuário */
-    
+
     table td {
         margin-top: 50px;
         margin: 2px;
@@ -269,15 +274,16 @@
         padding-right: 104px;
         font-size: 14px;
     }
-    
+
     .p_item {
         height: 30px;
         line-height: 30px;
         font-size: 16px;
         font-family: cursive;
     }
+
     /*CLASSE DE AVISO PADRÃO PARA O SISTEMA TODO*/
-    
+
     .warn {
         padding: 15px;
         background-color: rgba(245, 66, 60, 0.836);
