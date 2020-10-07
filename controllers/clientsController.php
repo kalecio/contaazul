@@ -107,4 +107,8 @@ class ClientsController extends controller
             header("Location: ".BASE_URL."/clients");
         }
     }
+    public function delete($id)
+    {
+        echo "Falta fazer este metodo de deletar";
+    }
 }
