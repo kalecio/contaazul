@@ -19,7 +19,7 @@ class ClientsController extends controller
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-
+            
         if ($user->hasPermission('clients_view')) {
             $clients = new ClientsModels();
 
@@ -71,6 +71,7 @@ class ClientsController extends controller
             header("Location:" . BASE_URL . "/clients"); // FUNÇÃO DE SEGURANÇA E VERIFICAÇÃO CASO OCORRA QUE ALGUM USUÁRIO QUEIRA ADICIONAR OU CONSULTAR UM CLIENTE, FZENDO ASSIM O RETORNO PARA O MENU INICIAL DO SISTEMA COMO EM EFEITO CASCATA
         }
     }
+    
     public function edit($id)
     {
         $data = array();
