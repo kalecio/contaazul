@@ -1,8 +1,9 @@
 <?php
 
-class homeController extends controller {
-
-    public function __construct() {
+class homeController extends controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -10,7 +11,8 @@ class homeController extends controller {
         }
     }
 
-    public function index() {
+    public function index()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -22,5 +24,4 @@ class homeController extends controller {
 
         $this->loadTemplate('home', $data);
     }
-
 }

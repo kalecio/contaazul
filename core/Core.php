@@ -1,8 +1,9 @@
 <?php
 
-class Core {
-
-    public function run() {
+class Core
+{
+    public function run()
+    {
         $url = explode('index.php', $_SERVER['PHP_SELF']);
         $url = end($url);
 
@@ -32,5 +33,4 @@ class Core {
         $c = new $currentController();
         call_user_func_array(array($c, $currentAction), $params);
     }
-
 }

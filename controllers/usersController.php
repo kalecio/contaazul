@@ -1,8 +1,9 @@
 <?php
 
-class UsersController extends controller {
-
-    public function __construct() /* função para importa o banco de dados */ {
+class UsersController extends controller
+{
+    public function __construct() /* função para importa o banco de dados */
+    {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -11,7 +12,8 @@ class UsersController extends controller {
         }
     }
 
-    public function index() {
+    public function index()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -21,7 +23,7 @@ class UsersController extends controller {
         if ($user->hasPermission('users_view')) {
             $data['users_list'] = $user->getList($user->getCompany());
             $this->loadTemplate('users', $data);
-            // die(var_dump($data));
+        // die(var_dump($data));
         } else {
             header("Location:" . BASE_URL);
         }
@@ -29,7 +31,8 @@ class UsersController extends controller {
 
     /* FUNÇÃO REQUERIDA PARA SALVAR NOVOS USUARIOS NO BANCO */
 
-    public function add() {
+    public function add()
+    {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -63,5 +66,4 @@ class UsersController extends controller {
             header("Location: " . BASE_URL);
         }
     }
-
 }
