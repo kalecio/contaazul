@@ -22,11 +22,17 @@ class ClientsController extends controller
 
         if ($user->hasPermission('clients_view')) {
             $clients = new ClientsModels();
-
             $offset = 0; // retorno de usuários
+            $data['pagina'] = 1;
+            if (isset($_GET['pagina']) && !empty($_GET['pagina'])) {
+                $data['pagina'] = intval($_GET['pagina']);
+                if ($data['pagina'] == 0) {
+                    $data['pagina'] = 1;
+                }
+            }
             $data['clients_list'] = $clients->getList($offset, $user->getCompany());  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
             $data['clients_count'] = $clients->getCount($user->getCompany());
-            $data['p_count'] = ceil($data['clients_count'] / 10);
+            $data['p_count'] = ($data['clients_count'] / 10);
             $data['edit_permission'] = $user->hasPermission('clients_edit');  //função verificadora, se o usuário tem permissão de adicionar ou de ver o cliente listado ou criar novo
             $this->loadTemplate('clients', $data);
             //die(var_dump($data));
