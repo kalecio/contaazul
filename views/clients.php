@@ -39,6 +39,19 @@
             </tr>
         <?php endforeach; ?>
     </table><!-- LEMBRAR DE POR RESPOSIVIDAE DENTRO DAS VIEWS DO SISTEMA web-->
+    <div class="paginator">
+        <?php
+        for ($q = 1; $q <= $p_count; $q++) : {
+            }
+        ?>
+            <div class="pag_item">
+                <?php echo $q; ?>
+
+
+            </div>
+        <?php endfor; ?>
+    </div>
+
 </body>
 
 </html>

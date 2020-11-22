@@ -19,16 +19,17 @@ class ClientsController extends controller
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-            
+
         if ($user->hasPermission('clients_view')) {
             $clients = new ClientsModels();
 
-            $offset = 0;
+            $offset = 0; // retorno de usuários
             $data['clients_list'] = $clients->getList($offset, $user->getCompany());  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
-
+            $data['clients_count'] = $clients->getCount($user->getCompany());
+            $data['p_count'] = ceil($data['clients_count'] / 10);
             $data['edit_permission'] = $user->hasPermission('clients_edit');  //função verificadora, se o usuário tem permissão de adicionar ou de ver o cliente listado ou criar novo
             $this->loadTemplate('clients', $data);
-        //die(var_dump($data));
+            //die(var_dump($data));
         } else {
             header("Location:" . BASE_URL);
         }
@@ -66,12 +67,12 @@ class ClientsController extends controller
 
             /*inclusão de parametros de segurança via ADDSLASHES*/
             $this->loadTemplate('clients_add', $data);
-        //die(var_dump($data));
+            //die(var_dump($data));
         } else {
             header("Location:" . BASE_URL . "/clients"); // FUNÇÃO DE SEGURANÇA E VERIFICAÇÃO CASO OCORRA QUE ALGUM USUÁRIO QUEIRA ADICIONAR OU CONSULTAR UM CLIENTE, FZENDO ASSIM O RETORNO PARA O MENU INICIAL DO SISTEMA COMO EM EFEITO CASCATA
         }
     }
-    
+
     public function edit($id)
     {
         $data = array();
@@ -96,16 +97,16 @@ class ClientsController extends controller
                 $address_city = addslashes($_POST['address_city']);
                 $address_state = addslashes($_POST['address_state']);
                 $address_country = addslashes($_POST['address_country']);
-                
+
                 $clients->edit($id, $user->getCompany(), $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country);
                 header("Location:" . BASE_URL . "/clients");
             }
             $data['client_info'] = $clients->getInfo($id, $user->getCompany());
 
             $this->loadTemplate('clients_edit', $data);
-        //die(var_dump($data));
+            //die(var_dump($data));
         } else {
-            header("Location: ".BASE_URL."/clients");
+            header("Location: " . BASE_URL . "/clients");
         }
     }
     public function delete($id)

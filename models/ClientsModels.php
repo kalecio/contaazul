@@ -16,18 +16,29 @@ class ClientsModels extends model
         return $array;
     }
     public function getInfo($id, $id_company)
-    {
-        // função e busca e segurança para não apagar nenhum usuário que não seja o correto
+    {        // função e busca e segurança para não apagar nenhum usuário que não seja o correto
         $array = array();
-        $sql = $this->db->prepare("SELECT * FROM Clients WHERE id = :id AND id_company  = :id_company");
+        $sql = $this->db->prepare("SELECT * FROM clients WHERE id = :id AND id_company  = :id_company");
         $sql->bindValue(":id", $id);
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
-        if ($sql->rowCount()> 0) {
+        if ($sql->rowCount() > 0) {
             $array = $sql->fetch();
         }
         return $array;
+    }
+
+    public function getCount($id_company)
+    {
+        $r = 0;
+        $sql = $this->db->prepare("SELECT COUNT(*) AS C FROM clients WHERE id_company = :id_company");
+        $sql->bindValue(':id_company', $id_company);
+        $sql->execute();
+        $row = $sql->fetch();
+        $r = $row['C'];
+
+        return $r;
     }
     public function add($id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country)
     {
@@ -62,7 +73,13 @@ class ClientsModels extends model
         $sql->bindValue(":stars", $stars);
         $sql->bindValue(":internal_obs", $internal_obs);
         $sql->execute();
+        // echo "<pre>";
+        // var_dump($id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country);
+        // echo "</pre>";
+        // die();
     }
+
+
     public function edit($id, $id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country)
     {
         $sql = $this->db->prepare("UPDATE  clients SET 
@@ -81,7 +98,7 @@ class ClientsModels extends model
             stars = :stars,
             internal_obs = :internal_obs WHERE id = :id AND :id_company = :id_company2
            ");
-        
+
         $sql->bindValue(":id_company", $id_company);
         $sql->bindValue(":name", $name);
         $sql->bindValue(":email", $email);
