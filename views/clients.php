@@ -39,14 +39,14 @@
             </tr>
         <?php endforeach; ?>
     </table><!-- LEMBRAR DE POR RESPOSIVIDAE DENTRO DAS VIEWS DO SISTEMA web-->
-    <div class="paginator">
-        <?php for ($quantidade = 1; $quantidade <= $p_count; $quantidade++) : ?>
-            <div class="pag_item " <?php echo ($quantidade == $pagina)?'pag_ativo':'';?>>
-                <a href="<?php echo BASE_URL; ?>/clients?pagina=<?php echo $quantidade; ?>"><?php echo $quantidade; ?> </a> </div> <?php endfor; ?>
+    <div class="pagination">
+<?php for($q=1;$q<=$p_count;$q++): ?>
+	<div class="pag_item <?php echo ($q==$p)?'pag_ativo':''; ?>"><a href="<?php echo BASE_URL; ?>/clients?p=<?php echo $q; ?>"><?php echo $q; ?></a></div>
+<?php endfor; ?>
+<div style="clear:both"></div>
+</div>
 
-
-            <div style=" clear:both;"></div>
-    </div>
+    
 
 </body>
 
