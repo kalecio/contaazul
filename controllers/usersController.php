@@ -23,7 +23,7 @@ class UsersController extends controller
         if ($user->hasPermission('users_view')) {
             $data['users_list'] = $user->getList($user->getCompany());
             $this->loadTemplate('users', $data);
-        // die(var_dump($data));
+            // die(var_dump($data));
         } else {
             header("Location:" . BASE_URL);
         }

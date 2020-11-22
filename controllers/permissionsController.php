@@ -25,7 +25,7 @@ class PermissionsController extends controller
             $data['permissions_list'] = $permissions->getList($user->getCompany());
             $data['permissions_groups_list'] = $permissions->getGroupList($user->getCompany());
             $this->loadTemplate('permissions', $data);
-        // die(var_dump($data));
+            // die(var_dump($data));
         } else {
             header("Location:" . BASE_URL);
         }

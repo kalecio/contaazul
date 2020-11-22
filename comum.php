@@ -16,11 +16,11 @@ $sql = $pdo->query($sql);
 if ($sql->rowCount() > 0) {
 
     foreach ($sql->fetchAll() as $post) {
-        ?>
+?>
         <h3><?php echo $post['titulo']; ?></h3>
         <?php echo $post['corpo']; ?>
         <hr />
-        <?php
+<?php
     }
 }
 ?>

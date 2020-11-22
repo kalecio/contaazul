@@ -28,7 +28,7 @@
                 <?php foreach ($permissions_groups_list as $p) : ?>
                     <tr>
                         <td><?php echo $p['name']; ?></td>
-                        <td >
+                        <td>
                             <div class="button button-Excluir"><a href="<?php echo BASE_URL; ?>/permissions/delete_group/<?php echo $p['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir esta permissão?');">Excluir</a> </div>
                         </td>
                         <td>
@@ -51,7 +51,7 @@
                     <tr>
                         <td><?php echo $p['name']; ?></td>
                         <td>
-                        <div class="button button-Excluir_dois"><a href="<?php echo BASE_URL; ?>/permissions/delete/<?php echo $p['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir esta permissão?');">Excluir</a> </div>
+                            <div class="button button-Excluir_dois"><a href="<?php echo BASE_URL; ?>/permissions/delete/<?php echo $p['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir esta permissão?');">Excluir</a> </div>
 
                         </td>
                     </tr>
