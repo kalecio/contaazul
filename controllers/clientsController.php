@@ -1,5 +1,5 @@
 <?php
-class ClientsController extends controller
+class ClientsController extends Controller
 {
     public function __construct()  /*função para importa o banco de dados */
     {
