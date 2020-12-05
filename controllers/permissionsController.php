@@ -1,6 +1,6 @@
 <?php
 
-class PermissionsController extends controller
+class PermissionsController extends Controller
 {
     public function __construct() /* função para importa o banco de dados */
     {
