@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends controller
+class UsersController extends Controller
 {
     public function __construct() /* função para importa o banco de dados */
     {
