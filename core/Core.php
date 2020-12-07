@@ -12,7 +12,7 @@ class Core
             $url = explode('/', $url);
             array_shift($url);
 
-            $currentController = $url[0] . 'Controller';
+            $currentController = $url[0] . 'controller';
             array_shift($url);
 
             if (isset($url[0])) {
@@ -26,7 +26,7 @@ class Core
                 $params = $url;
             }
         } else {
-            $currentController = 'homeController';
+            $currentController = 'HomeController';
             $currentAction = 'index';
         }
 
