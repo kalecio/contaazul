@@ -1,6 +1,6 @@
 <?php
 
-class CompaniesModels extends model
+class CompaniesModels extends Model
 {
     private $companyInfo;
 

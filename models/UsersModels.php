@@ -1,6 +1,5 @@
 <?php
-
-class UsersModels extends model
+class UsersModels extends Model
 {
     private $userInfo;
     private $permissions;

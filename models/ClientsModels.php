@@ -1,6 +1,6 @@
 <?php
 
-class ClientsModels extends model
+class ClientsModels extends Model
 {
     public function getList($offset, $id_company)
     {
