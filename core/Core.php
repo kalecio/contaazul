@@ -26,7 +26,7 @@ class Core
                 $params = $url;
             }
         } else {
-            $currentController = 'HomeController';
+            $currentController = 'homeController';
             $currentAction = 'index';
         }
 
