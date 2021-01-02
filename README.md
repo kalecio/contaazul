@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
 </head>
 <body>
     
@@ -24,7 +24,7 @@ Utilizado para desenvolver o projeto foram:
 Linguagem de programação, marcação ou estilos
 
 HTML 5
-<img src= "imgReadme/mysql.png">
+
 
 CSS
 JS
@@ -35,13 +35,13 @@ PHP na versão 7.4
 
 Servidor 
 
-Apache
+Xampp
 
 Banco de dados 
 
-SQL na plataforma mysql
+<img src= "imgReadme/mysql.png">  MYSQL
 
-<h5>Softwares e utilitários  </h5>
+<h3>Softwares e utilitários  </h3>
 
 *Mysql Workbench 
 
