@@ -39,7 +39,7 @@ Xampp
 
 Banco de dados 
 
-<img src= "imgReadme/mysql.png">  MYSQL
+<i class="fab fa-react">MYSQL </i> 
 
 <h3>Softwares e utilitários  </h3>
 
