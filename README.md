@@ -61,7 +61,7 @@
     </div>
     <div>
         <h3>Banco de dados </h3>
-        <hr>
+        <hr />
         <ul>
             <img src="imgReadme/mysql.png" width="" height="90" style="border-radius: 10px;"> &nbsp;<strong
                 style='text-align:justify;'>MYSQL</strong><br />
@@ -69,6 +69,7 @@
     </div>
     <div>
         <h3>Softwares e utilitários </h3>
+        <hr />
         <ul>
             <img src="imgReadme/mysql-workbench-icon.png" width="" height="90" style="border-radius: 10px;">
             &nbsp;<strong style='text-align:justify;'>Mysql Workbench </strong><br />
@@ -81,7 +82,7 @@
     </div>
     <div>
         <h3>Bibliotecas PHP para configuração do projeto </h3>
-        <hr>
+        <hr />
         <ul>
             <img src="imgReadme/pdo.png" width="" height="67" style="border-radius: 10px;"> &nbsp;<strong
                 style='text-align:justify;'>PDO</strong><br />
@@ -102,6 +103,7 @@
     </div>
     <div>
         <h3>Arquitetura </h3>
+        <hr />
         <ul>
             <img src="imgReadme/mvc.png" width="" height="65" style="border-radius: 10px;"> &nbsp;<strong
                 style='text-align:justify;'> MVC </strong><br />
@@ -109,9 +111,10 @@
     </div>
     <div>
         <h3>Editor de código </h3>
+        <hr />
         <ul>
-          <img src="imgReadme/vscode.png" width="" height="65" style="border-radius: 10px;"> &nbsp;<strong
-                style='text-align:justify;'>  Visual Studio Code </strong><br />
+            <img src="imgReadme/vscode.png" width="" height="65" style="border-radius: 10px;"> &nbsp;<strong
+                style='text-align:justify;'> Visual Studio Code </strong><br />
         </ul>
     </div>
 
