@@ -40,6 +40,9 @@
                 <img src="imgReadme/js.png" width="" height="82" style="border-radius: 10px;">&nbsp;<strong
                     style='text-align:justify;'>JS </strong><br />
                 <br />
+                <img src="imgReadme/jquery.jpg" width="" height="92" style="border-radius: 10px;">&nbsp;<strong
+                    style='text-align:justify;'>Jquery </strong><br />
+                <br />
         </ul>
     </div>
     <div>
