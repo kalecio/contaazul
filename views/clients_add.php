@@ -13,7 +13,7 @@
     <input type="email" name="email" /><br /><br />
 
     <label for="phone">Telefone</label><br />
-    <input type="text" name="phone" /><br /><br />
+    <input type="text" name="phone" class="phone" /><br /><br />
 
     <label for="stars">Estrelas</label><br />
     <select name="stars" id="stars">
@@ -28,7 +28,7 @@
     <textarea name="internal_obs" id="internal_obs"></textarea><br /><br />
 
     <label for="address_zipcode">CEP</label><br />
-    <input type="text" name="address_zipcode" /><br /><br />
+    <input type="text" name="address_zipcode" id="address_zipcode" /><br /><br />
 
     <label for="address">Rua</label><br />
     <input type="text" name="address" /><br /><br />
@@ -54,5 +54,6 @@
     <input type="submit" value="Adicionar" />
 
 </form>
-
-<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script> <!-- inclusão do ajax para o sistema requisitar o cep do usuário-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script><!-- inclusão do ajax para o sistema requisitar o cep do usuário-->
