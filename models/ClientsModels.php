@@ -117,4 +117,21 @@ class ClientsModels extends Model
         $sql->bindValue(":id_company2", $id_company);
         $sql->execute();
     }
+
+    public function searchClientByname($name, $id_company)
+    {
+
+        $array = array();
+        $sql = $this->db->prepare("SELECT  name, id FROM clients WHERE name LIKE :name");
+
+        $sql->bindValue(':name', '%' . $name . '%');
+        $sql->execute();
+
+
+        if ($sql->rowCount() > 0) {
+
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
 }
