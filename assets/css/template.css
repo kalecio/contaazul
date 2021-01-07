@@ -125,11 +125,7 @@
         padding-top: 50px;
     }
 
-    input[type=text],
-    input[type=email],
-    input[type=password],
-    select,
-    textarea {
+    input[type=text], input[type=email], input[type=password], select, textarea {
         margin-top: 5px;
         width: 100%;
         height: 30px;
@@ -142,12 +138,9 @@
 
     textarea {
         height: 100px;
-
     }
 
-    input[type=submit],
-    button,
-    .button {
+    input[type=submit], button, .button {
         border: 2px;
         background-color: #2e67d2;
         color: #fff;
@@ -189,6 +182,7 @@
     }
 
     /*UTILIZADO PARA QUANDO SE TEM NECESSIDADE DE CENTRARLIZAR APENAS 1 BOTÃO DENTRO DA TABELA OU GRID*/
+
     .button-Excluir_dois {
         border: 2px;
         background-color: #2e67d2;
@@ -294,25 +288,43 @@
     }
 
     .pagination {
-        margin-top:30px;
-        margin-bottom:30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
+
     .pag_item {
-        width:20px;
-        height:20px;
-        float:left;
-        border:1px solid #000;
+        width: 20px;
+        height: 20px;
+        float: left;
+        border: 1px solid #000;
         margin-right: 3px;
         text-align: center;
         line-height: 20px;
     }
+
     .pag_item a {
-        color:#000;
+        color: #000;
         text-decoration: none;
     }
+
     .pag_ativo {
-        background-color:#224074;
+        background-color: #224074;
     }
+
     .pag_ativo a {
-        color:#FFF;
+        color: #FFF;
     }
+
+    #busca {
+        width: 100px;
+        float: right;
+        background-image: url(../images/search.png);
+        background-repeat: no-repeat;
+        background-size: 15px 15px;
+        background-position: 5px;
+        padding-left: 25px;
+        border-radius: 3px;
+        border:1px solid #ccc;
+
+    }
+
