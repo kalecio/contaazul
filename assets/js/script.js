@@ -18,6 +18,10 @@ $(function () {
                     width: '100px'
                 });
             }
+            setTimeout(function () {
+                $('.searchresults').hide();
+
+            }, 500);
         });
 
         $('#busca').on('keyup', function () {
@@ -32,9 +36,19 @@ $(function () {
                     data: { busca: busca },
                     dataType: 'json',
                     success: function (json) {
-
-
+                        if ($('.searchresults').length == 0) {
+                            $('#busca').after('<div class="searchresults"></div>');
+                        }
+                        $('.searchresults').css('left', $('#busca').offset().left + 'px');
+                        $('.searchresults').css('top', $('#busca').offset().top + $('#busca').height() + 3 + 'px');
+                        let html = '';
+                        for (let i in json) {
+                            html += '<div class="si"><a href="' + json[i].link + '">' + json[i].name + '</a></div>';
+                        }
+                        $('.searchresults').html(html);
+                        $('.searchresults').show();
                     }
+
 
 
                 });
