@@ -324,7 +324,30 @@
         background-position: 5px;
         padding-left: 25px;
         border-radius: 3px;
-        border:1px solid #ccc;
-
+        border: 1px solid #ccc;
     }
 
+    .searchresults {
+        width: 280px;
+        height: 184px;
+        background-color: #fff;
+        position: absolute;
+        border: 1px solid #CCC;
+    }
+
+    .si {
+        height: 20px;
+        line-height: 20px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    .si a {
+        color: #000;
+        text-decoration: none;
+        display: block;
+    }
+
+    .si:hover {
+        background-color: #EEE;
+    }
