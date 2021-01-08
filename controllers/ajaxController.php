@@ -25,7 +25,14 @@ class AjaxController extends Controller
 
             $busca = addslashes($_GET['busca']);
 
-            $data  = $clientes->searchClientByname($busca, $user->getCompany());
+            $clientesBusca  = $clientes->searchClientByname($busca, $user->getCompany());
+            foreach ($clientesBusca as $citem) {
+                $data[] = array(
+                    'name' => $citem['name'],
+                    'link' => BASE_URL . '/clients/edit/' . $citem['id']
+
+                );
+            }
         }
 
         echo json_encode($data);
