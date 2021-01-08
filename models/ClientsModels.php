@@ -122,7 +122,7 @@ class ClientsModels extends Model
     {
 
         $array = array();
-        $sql = $this->db->prepare("SELECT  name, id FROM clients WHERE name LIKE :name");
+        $sql = $this->db->prepare("SELECT  name, id FROM clients WHERE name LIKE :name LIMIT 10");
 
         $sql->bindValue(':name', '%' . $name . '%');
         $sql->execute();
