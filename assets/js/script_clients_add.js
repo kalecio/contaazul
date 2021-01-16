@@ -28,3 +28,11 @@ $('input[name=address_zipcode]').on('blur', function () {
     /*terminar de configurar API do sistema de CEP*/
     /*organização da API DO SISTEMA*/
 });
+// mascaras para cep e outross
+$(function () {
+
+    $('input[name=price]').mask('000.000.000.000.000,00', { reverse: true, placeholder: "0,00" });
+    $('input[name=phone]').mask('000.(00).0.0000-0000', { reverse: true, placeholder: "Digite seu numero completo com o DDD iniciando com o 041" });
+
+
+});
