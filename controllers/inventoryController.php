@@ -45,6 +45,25 @@ class InventoryController extends Controller
         $data['user_email'] = $user->getEmail();
 
         if ($user->hasPermission('inventory_add')) {
+
+            if (isset($_POST['name']) && !empty($_POST['name'])) {
+
+                $inventory = new InventoryModel();
+                $name = addslashes(($_POST['name']));
+                $price = addslashes($_POST['price']);
+                $quant = addslashes($_POST['quant']);
+                $min_quant = addslashes($_POST['min_quant']);
+
+                $price = str_replace(',', '.', $price);
+
+
+                $inventory->add($name, $price, $quant, $min_quant, $user->getCompany(), $user->getId());
+               // die(var_dump($name, $price, $quant, $min_quant));
+                
+                header("Location: " . BASE_URL . "/inventory");
+
+               
+            }
             $this->loadTemplate('inventory_add', $data);
         }
     }
