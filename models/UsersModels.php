@@ -61,6 +61,14 @@ class UsersModels extends Model
             return 0;
         }
     }
+    public function getId()
+    {
+        if (isset($this->userInfo['id'])) {
+            return $this->userInfo['id'];
+        } else {
+            return 0;
+        }
+    }
 
     public function logout()
     {
