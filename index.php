@@ -2,7 +2,7 @@
 
 session_start();
 require 'config.php';
-define('BASE_URL', 'http://localhost/contaazul');
+define('BASE_URL', 'http://192.168.1.29/contaazul');
 spl_autoload_register(function ($class) {
     if (file_exists('controllers/' . $class . '.php')) {
 
