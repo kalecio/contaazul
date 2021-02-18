@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<h1>Estoque</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
-</head>
+<?php if ($add_permission) : ?>
+    <div class="button"><a href="<?php echo BASE_URL; ?>/inventory/add">Adicionar Produto</a></div>
+<?php endif; ?>
+<input type="text" id="busca" data-type="search_inventory" />
 
-<body>
-    <h1>Estoque</h1>
+<table border="0" width="100%">
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Quant.</th>
+        <th>Quant. Min.</th>
+        <th>Ações</th>
+    </tr>
+    <?php foreach ($inventory_list as $product) : ?>
+        <tr>
+            <td><?php echo $product['name']; ?></td>
+            <td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
+            <td width="60" style="text-align:center"><?php echo '<span style="color:green">' . $product['quant']; ?></td>
+            <td width="90" style="text-align:center">
+                <?php
+                if ($product['min_quant'] > $product['quant']) {
+                    echo '<span style="color:red">' . ($product['min_quant']) . '</span>';
+                } else {
+                    echo $product['min_quant'];
+                }
+                ?></td>
+            <td width="160">
+                <div class="button button-Editar "><a href="<?php echo BASE_URL; ?>/inventory/edit/<?php echo $product['id']; ?>">Editar</a></div>
 
-    <?php if ($add_permission) : ?>
-        <div>
-            <div class="button"><a href="<?php echo BASE_URL; ?>/inventory/add">Adicionar Produto</a> </div>
-        <?php endif; ?>
-
-        <input type="text" id="busca" data-type="search_inventory" />
-        <table border="0" width="100%">
-            <tr>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Quant. Minima</th>
-
-                <th>Ações</th>
-
-            </tr>
-
-        </table>
-        <?php foreach ($inventory_list as $product) : ?>
-            <td> <?php echo $product['name']; ?></td>
-            <td><?php echo number_format($product['price'], 2); ?></td>
-            <td><?php echo $product['quant']; ?></td>
-            <td><?php echo $product['min_quant']; ?></td>
-            <td> </td>
-            }
-        <?php endforeach; ?>
-
-        
-</body>
-
-</html>
+                <div class="button button-Excluir"><a href="<?php echo BASE_URL; ?>/inventory/delete/<?php echo $product['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a></div>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
