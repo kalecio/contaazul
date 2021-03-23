@@ -5,13 +5,13 @@ global $config;
 $config = array();
 try {
 	if (ENVIRONMENT == 'development') {
-		$config['dbname'] = 'contaazul';
+		$config['dbname'] = 'conta_azul';
 		$config['host'] = 'localhost';
 		$config['dbuser'] = 'root';
 		$config['dbpass'] = '';
 	} else {
-		$config['dbname'] = 'contaazul';
-		$config['host'] = '192.168.1.29';
+		$config['dbname'] = 'conta_azul';
+		$config['host'] = '192.168.1.30';
 		$config['dbuser'] = 'root';
 		$config['dbpass'] = '';
 	}
