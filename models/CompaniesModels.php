@@ -10,9 +10,14 @@ class CompaniesModels extends Model
         $sql = $this->db->prepare("SELECT * FROM companies WHERE id = :id");
         $sql->bindValue(':id', $id);
         $sql->execute();
-        if ($sql->rowCount() > 0) {
-            $this->companyInfo = $sql->fetch();
+        try {
+            if ($sql->rowCount() > 0) {
+                $this->companyInfo = $sql->fetch();
+            }
+        } catch (Exception $e){
+            echo "Erro ao selecionar as companies".$e->getMessage();
         }
+
     }
 
     public function getName()
