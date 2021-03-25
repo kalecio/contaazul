@@ -8,7 +8,7 @@ try {
     die($e->getMessage());
 }
 ?>
-<h1>Notícias</h1>
+    <h1>Notícias</h1>
 <?php
 $sql = "SELECT * FROM posts LIMIT 10";
 $sql = $pdo->query($sql);
@@ -16,11 +16,11 @@ $sql = $pdo->query($sql);
 if ($sql->rowCount() > 0) {
 
     foreach ($sql->fetchAll() as $post) {
-?>
+        ?>
         <h3><?php echo $post['titulo']; ?></h3>
         <?php echo $post['corpo']; ?>
-        <hr />
-<?php
+        <hr/>
+        <?php
     }
 }
 ?>

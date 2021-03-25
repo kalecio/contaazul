@@ -1,4 +1,5 @@
 <?php
+
 class AjaxController extends Controller
 {
     public function __construct()  /*função para importa o banco de dados */
@@ -10,6 +11,7 @@ class AjaxController extends Controller
             exit;
         }
     }
+
     public function index()
     {
     }
@@ -25,7 +27,7 @@ class AjaxController extends Controller
 
             $busca = addslashes($_GET['busca']);
 
-            $clientesBusca  = $clientes->searchClientByname($busca, $user->getCompany());
+            $clientesBusca = $clientes->searchClientByname($busca, $user->getCompany());
             foreach ($clientesBusca as $citem) {
                 $data[] = array(
                     'name' => $citem['name'],

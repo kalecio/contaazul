@@ -11,6 +11,7 @@ class InventoryController extends Controller
             exit;
         }
     }
+
     public function index()
     {
         $data = array();
@@ -35,6 +36,7 @@ class InventoryController extends Controller
             header("Location:" . BASE_URL);
         }
     }
+
     public function add()
     {
         $data = array();
@@ -58,11 +60,11 @@ class InventoryController extends Controller
 
 
                 $inventory->add($name, $price, $quant, $min_quant, $user->getCompany(), $user->getId());
-               // die(var_dump($name, $price, $quant, $min_quant));
-                
+                // die(var_dump($name, $price, $quant, $min_quant));
+
                 header("Location: " . BASE_URL . "/inventory");
 
-               
+
             }
             $this->loadTemplate('inventory_add', $data);
         }
