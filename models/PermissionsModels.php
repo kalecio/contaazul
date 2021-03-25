@@ -53,24 +53,29 @@ class PermissionsModels extends Model
         $sql->bindValue(':id', $id);
         $sql->bindValue(':id_company', $id_company);
         $sql->execute();
-        if ($sql->rowCount() > 0) {
-            $row = $sql->fetch();
-            if (empty($row['params'])) {
-                $row['params'] = '0';
-            }
-            $params = $row['params'];
-            $sql = $this->db->prepare("SELECT name FROM permission_params WHERE id IN ($params) AND id_company = :id_company");
-            $sql->bindValue(':id_company', $id_company);
-            $sql->execute();
-
+        try {
             if ($sql->rowCount() > 0) {
-                foreach ($sql->fetchAll() as $item) {
-                    $this->permissions[] = $item['name'];
+                $row = $sql->fetch();
+                if (empty($row['params'])) {
+                    $row['params'] = '0';
+                }
+                $params = $row['params'];
+                $sql = $this->db->prepare("SELECT name FROM permission_params WHERE id IN ($params) AND id_company = :id_company");
+                $sql->bindValue(':id_company', $id_company);
+                $sql->execute();
+
+                if ($sql->rowCount() > 0) {
+                    foreach ($sql->fetchAll() as $item) {
+                        $this->permissions[] = $item['name'];
+                    }
                 }
             }
+            // print_r($this->permissions);
+            //die(var_dump($this->permissions));
+        } catch (PDOException $e){
+            "Erro ao inserir".$e->getMessage();
         }
-        // print_r($this->permissions);
-        //die(var_dump($this->permissions));
+
     }
 
     public function addGroup($name, $plist, $id_company)
@@ -127,12 +132,18 @@ class PermissionsModels extends Model
     public function deleteGroup($id)
     {
         $user = new UsersModels();
-        if ($user->findUsersInGroup($id) == false) {
-            $sql = $this->db->prepare("DELETE FROM permission_groups WHERE id = :id");
-            $sql->bindValue(":id", $id);
-            $sql->execute();
-        } else {
-            echo "error";
+        try {
+            if ($user->findUsersInGroup($id) == false) {
+                $sql = $this->db->prepare("DELETE FROM permission_groups WHERE id = :id");
+                $sql->bindValue(":id", $id);
+                $sql->execute();
+            } else {
+                echo "error";
+            }
+
+        }catch (Exception $e){
+            echo "Erro ao deletar permissões".$e->getMessage();
         }
+
     }
 }
