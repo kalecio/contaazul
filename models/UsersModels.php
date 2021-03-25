@@ -1,4 +1,5 @@
 <?php
+
 class UsersModels extends Model
 {
     private $userInfo;
@@ -61,6 +62,7 @@ class UsersModels extends Model
             return 0;
         }
     }
+
     public function getId()
     {
         if (isset($this->userInfo['id'])) {
@@ -99,14 +101,8 @@ class UsersModels extends Model
     {
         $array = array();
 
-        $sql = $this->db->prepare("			SELECT
-				users.id,
-				users.email,
-				permission_groups.name
-			FROM users
-			LEFT JOIN permission_groups ON permission_groups.id = users.id_company
-			WHERE
-			users.id_company = :id_company");
+        $sql = $this->db->prepare("SELECT users.id,users.email,permission_groups.name	FROM users LEFT JOIN permission_groups ON permission_groups.id = users.id_company
+			WHERE users.id_company = :id_company");
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
