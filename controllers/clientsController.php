@@ -31,10 +31,12 @@ class ClientsController extends Controller
                 }
             }
             $offset = (10 * ($data['p'] - 1));
+
             $data['clients_list'] = $clients->getList($offset, $user->getCompany());  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
             $data['clients_count'] = $clients->getCount($user->getCompany());
-            $data['p_count'] = ceil($data['clients_count'] / 10);
+            $data['p_count'] = ceil( $data['clients_count'] / 10 );
             $data['edit_permission'] = $user->hasPermission('clients_edit');  //função verificadora, se o usuário tem permissão de adicionar ou de ver o cliente listado ou criar novo
+
             $this->loadTemplate('clients', $data);
             //die(var_dump($data));
         } else {

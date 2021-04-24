@@ -32,10 +32,12 @@ class ClientsModels extends Model
     public function getCount($id_company)
     {
         $r = 0;
+
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM clients WHERE id_company = :id_company");
         $sql->bindValue(':id_company', $id_company);
         $sql->execute();
         $row = $sql->fetch();
+
         $r = $row['c'];
 
         return $r;
