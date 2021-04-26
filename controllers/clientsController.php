@@ -11,38 +11,37 @@ class ClientsController extends Controller
         }
     }
 
-    public function index()
-    {
-        $data = array();
-        $user = new UsersModels();
-        $user->setLoggedUser();
-        $company = new CompaniesModels($user->getCompany());
+    public function index() {
+    	$data = array();
+    	$u = new UsersModels();
+        $u->setLoggedUser();
+        $company = new Companies($u->getCompany());
         $data['company_name'] = $company->getName();
-        $data['user_email'] = $user->getEmail();
+        $data['user_email'] = $u->getEmail();
 
-        if ($user->hasPermission('clients_view')) {
-            $clients = new ClientsModels();
-            $offset = 0; // retorno de usuários
+        if($u->hasPermission('clients_view')) {
+            $c = new Clients();
+            $offset = 0;
             $data['p'] = 1;
-            if (isset($_GET['p']) && !empty($_GET['p'])) {
+            if(isset($_GET['p']) && !empty($_GET['p'])) {
                 $data['p'] = intval($_GET['p']);
-                if ($data['p'] == 0) {
+                if($data['p'] == 0) {
                     $data['p'] = 1;
                 }
             }
-            $offset = (10 * ($data['p'] - 1));
+            $offset = ( 10 * ($data['p']-1) );
 
-            $data['clients_list'] = $clients->getList($offset, $user->getCompany());  // FOREACH PASSADO PARA VIEW PARA DAR O RETORNO
-            $data['clients_count'] = $clients->getCount($user->getCompany());
+            $data['clients_list'] = $c->getList($offset, $u->getCompany());
+            $data['clients_count'] = $c->getCount($u->getCompany());
             $data['p_count'] = ceil( $data['clients_count'] / 10 );
-            $data['edit_permission'] = $user->hasPermission('clients_edit');  //função verificadora, se o usuário tem permissão de adicionar ou de ver o cliente listado ou criar novo
+            $data['edit_permission'] = $u->hasPermission('clients_edit');
 
-            $this->loadTemplate('clients', $data);
-            //die(var_dump($data));
-        } else {
-            header("Location:" . BASE_URL);
-        }
+    		$this->loadTemplate('clients', $data);
+    	} else {
+    		header("Location: ".BASE_URL);
+    	}
     }
+
 
     public function add()
     {
