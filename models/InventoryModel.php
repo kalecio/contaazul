@@ -3,7 +3,7 @@
 class InventoryModel extends Model {
 
     public function getList($offset, $id_company) {
-        $array = array();
+        $array = [];
 
         $sql = $this->db->prepare("SELECT * FROM inventory WHERE id_company = :id_company LIMIT $offset, 10");
         $sql->bindValue(":id_company", $id_company);
@@ -17,7 +17,7 @@ class InventoryModel extends Model {
     }
 
     public function getInfo($id, $id_company) {
-        $array = array();
+        $array = [];
 
         $sql = $this->db->prepare("SELECT * FROM inventory WHERE id = :id AND id_company = :id_company");
         $sql->bindValue(":id", $id);
