@@ -3,7 +3,7 @@
 class ClientsModels extends Model {
 
     public function getList($offset, $id_company) {
-        $array = array();
+        $array = [];
 
         $sql = $this->db->prepare("SELECT * FROM clients WHERE id_company = :id_company LIMIT $offset, 10");
         $sql->bindValue(':id_company', $id_company);
@@ -17,7 +17,7 @@ class ClientsModels extends Model {
     }
 
     public function getInfo($id, $id_company) {        // função e busca e segurança para não apagar nenhum usuário que não seja o correto
-        $array = array();
+        $array = [];
         $sql = $this->db->prepare("SELECT * FROM clients WHERE id = :id AND id_company  = :id_company");
         $sql->bindValue(":id", $id);
         $sql->bindValue(":id_company", $id_company);
@@ -119,7 +119,7 @@ class ClientsModels extends Model {
 
     public function searchClientByname($name, $id_company) {
 
-        $array = array();
+        $array = [];
         $sql = $this->db->prepare("SELECT  name, id FROM clients WHERE name LIKE :name LIMIT 10");
 
         $sql->bindValue(':name', '%' . $name . '%');

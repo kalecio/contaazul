@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Painel - <?php echo $viewData['company_name'] ?></title>
-    <link href="<?php echo BASE_URL; ?>/assets/css/template.css" rel="stylesheet">
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Painel - <?php echo $viewData['company_name'] ?></title>
+        <link href="<?php echo BASE_URL; ?>/assets/css/template.css" rel="stylesheet">
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
+    </head>
 
-<body>
-    <h1>Clientes</h1>
-    <?php if ($edit_permission) : //FUNÇÃO PARA VERIFICAR SE O USUÁRIO TEM PERMISSÃO DE ADICIONAR NOVOS CLIENTES
-    ?>
-        <div>
-            <div class="button"><a href="<?php echo BASE_URL; ?>/clients/add">Adicionar Clientes</a> </div>
-        <?php endif; ?>
-        <input type="text" id="busca" data-type="search_clients" />
-        <br />
+    <body>
+        <h1>Clientes</h1>
+        <?php if ($edit_permission) : //FUNÇÃO PARA VERIFICAR SE O USUÁRIO TEM PERMISSÃO DE ADICIONAR NOVOS CLIENTES
+            ?>
+            <div>
+                <div class="button"><a href="<?php echo BASE_URL; ?>/clients/add">Adicionar Clientes</a> </div>
+            <?php endif; ?>
+            <input type="text" id="busca" data-type="search_clients" />
+            <br />
         </div>
         <br />
         <div>
@@ -51,6 +51,6 @@
             <?php endfor; ?>
             <div style="clear:both"></div>
         </div>
-</body>
+    </body>
 
 </html>
