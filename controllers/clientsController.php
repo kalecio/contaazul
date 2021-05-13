@@ -12,7 +12,7 @@ class ClientsController extends Controller
     }
 
     public function index() {
-    	$data = array();
+    	$data = [];
     	$user = new UsersModels();
         $user->setLoggedUser();
         $company = new CompaniesModels($user->getCompany());

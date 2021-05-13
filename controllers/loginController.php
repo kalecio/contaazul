@@ -1,10 +1,9 @@
 <?php
 
-class LoginController extends Controller
-{
-    public function index()
-    {
-        $data = array();
+class LoginController extends Controller {
+
+    public function index() {
+        $data = [];
 
         if (isset($_POST['email']) && !empty($_POST['email'])) {
             $email = addslashes($_POST['email']);
@@ -38,10 +37,10 @@ class LoginController extends Controller
 
 
     /* função essa será utilziada caso não necessite de uma permissão extra para fazer o logout */
-    public function logout()
-    {
+    public function logout() {
         $user = new UsersModels();
         $user->logout();
         header("Location:" . BASE_URL);
     }
+
 }
