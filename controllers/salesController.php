@@ -1,6 +1,6 @@
 <?php
 
-class inventoryController extends Controller {
+class salesController extends Controller {
 
     public function __construct() /* função para importa o banco de dados */ {
         parent::__construct();
@@ -20,7 +20,7 @@ class inventoryController extends Controller {
         $data['user_email'] = $user->getEmail();
 
         if ($user->hasPermission('sales_view')) {
-            
+                $sales = new SalesModels;
             $this->loadTemplate('sales', $data);
         } else {
 

@@ -1,8 +1,8 @@
 <?php
-class ClientsController extends Controller
-{
-    public function __construct()  /*função para importa o banco de dados */
-    {
+
+class ClientsController extends Controller {
+
+    public function __construct() /* função para importa o banco de dados */ {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -12,39 +12,37 @@ class ClientsController extends Controller
     }
 
     public function index() {
-    	$data = [];
-    	$user = new UsersModels();
+        $data = [];
+        $user = new UsersModels();
         $user->setLoggedUser();
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
 
-        if($user->hasPermission('clients_view')) {
+        if ($user->hasPermission('clients_view')) {
             $clients = new ClientsModels();
             $offset = 0;
             $data['p'] = 1;
-            if(isset($_GET['p']) && !empty($_GET['p'])) {
+            if (isset($_GET['p']) && !empty($_GET['p'])) {
                 $data['p'] = intval($_GET['p']);
-                if($data['p'] == 0) {
+                if ($data['p'] == 0) {
                     $data['p'] = 1;
                 }
             }
-            $offset = ( 10 * ($data['p']-1) );
+            $offset = ( 10 * ($data['p'] - 1) );
 
             $data['clients_list'] = $clients->getList($offset, $user->getCompany());
             $data['clients_count'] = $clients->getCount($user->getCompany());
-            $data['p_count'] = ceil( $data['clients_count'] / 10 );
+            $data['p_count'] = ceil($data['clients_count'] / 10);
             $data['edit_permission'] = $user->hasPermission('clients_edit');
 
-    		$this->loadTemplate('clients', $data);
-    	} else {
-    		header("Location: ".BASE_URL);
-    	}
+            $this->loadTemplate('clients', $data);
+        } else {
+            header("Location: " . BASE_URL);
+        }
     }
 
-
-    public function add()
-    {
+    public function add() {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -71,9 +69,9 @@ class ClientsController extends Controller
                 header("Location:" . BASE_URL . "/clients");
             }
 
-            /*tentar modificar para os parametros de FILTER_INPUT*/
+            /* tentar modificar para os parametros de FILTER_INPUT */
 
-            /*inclusão de parametros de segurança via ADDSLASHES*/
+            /* inclusão de parametros de segurança via ADDSLASHES */
             $this->loadTemplate('clients_add', $data);
             //die(var_dump($data));
         } else {
@@ -81,8 +79,7 @@ class ClientsController extends Controller
         }
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $data = array();
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -117,8 +114,9 @@ class ClientsController extends Controller
             header("Location: " . BASE_URL . "/clients");
         }
     }
-    public function delete($id)
-    {
+
+    public function delete($id) {
         echo "Falta fazer este metodo de deletar";
     }
+
 }
