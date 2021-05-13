@@ -18,13 +18,19 @@ class salesController extends Controller {
         $company = new CompaniesModels($user->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $user->getEmail();
-
-        if ($user->hasPermission('sales_view')) {
+        try {
+            if ($user->hasPermission('sales_view')) {
                 $sales = new SalesModels;
-            $this->loadTemplate('sales', $data);
-        } else {
+                $offset = 0;
+                $data['sales_list'] = $sales->getList($offset, $user->getCompany());
+                $this->loadTemplate("sales", $data);
+                  
+            } else {
 
-            header("Location:" . BASE_URL);
+                header("Location:" . BASE_URL);
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
         }
     }
 
