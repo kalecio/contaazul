@@ -59,23 +59,23 @@
     }
 
     .menuarea li {
-        height: 40px;
-        line-height: 40px;
-        border-bottom: 1px solid #999;
-        font-size: 14px;
-        padding-left: 45px;
-        background-size: 20px 20px;
+        height: 60px;
+        line-height: 51px;
+        /*border-bottom: 1px solid #999; */
+        font-size: 15px;
+        padding-left: 55px;
+        background-size: 30px 30px;
         background-repeat: no-repeat;
         background-position: 10px 13px;
     }
 
     .menuarea li:hover {
-        background-color: rgb(8, 160, 206);
+        background-color: rgb(255, 46, 96);
         ;
     }
 
     .menuarea li a {
-        color: #fff;
+        color: #ecd7d7;
         text-decoration: none;
         display: block;
     }
@@ -123,8 +123,8 @@
 
     .activetab {
         border-bottom: solid #fff;
-        background-color: rgb(8, 160, 206);
-        border-radius: 6px;
+        background-color: rgb(255, 95, 96);
+        border-radius: 11px;
     }
 
     .tabbody {
@@ -154,7 +154,7 @@
 
     input[type=submit], button, .button {
         border: 2px;
-        background-color: #2e67d2;
+        background-color: #e43589;
         color: #fff;
         height: 30px;
         line-height: 30px;
@@ -165,7 +165,7 @@
         font-size: 14px;
         text-decoration: none;
         display: inline-block;
-        width: 18%;
+        width: 13%;
         text-align: center;
     }
 
@@ -252,11 +252,12 @@
     label {
         cursor: pointer;
     }
-
+   
     table {
         margin-top: 10px;
+        display: grid;
     }
-
+   
     table th {
         width: 50%;
         height: 40px;
@@ -273,8 +274,8 @@
         margin-top: 50px;
         margin: 2px;
         height: 60px;
-        line-height: 40px;
-        background-color: #EEE;
+        line-height: 50px;
+        background-color: #e8c6c6;
         font-size: 12px;
         padding-left: 67px;
         padding-right: 104px;

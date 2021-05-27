@@ -6,7 +6,7 @@
 
 class SalesModels extends Model {
 
-    public function getList($offset,$id_company) {
+    public function getList($offset, $id_company) {
         $array = [];
 
         $sql = $this->db->prepare("SELECT sales.id, sales.date_sale, sales.total_price, sales.status "
@@ -16,12 +16,22 @@ class SalesModels extends Model {
                 . "ORDER BY date_sale DESC LIMIT $offset,10");
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
-
-        if ($sql->rowCount() > 0) {
-            $array = $sql->fetchAll;
+        try {
+            if ($sql->rowCount() > 0) {
+                $array = $sql->fetchAll;
+            }
+        } catch (Exception $e) {
+            $e->getMessage();
         }
 
         return $array;
     }
 
-}
+
+    
+    
+    
+    
+        }
+
+

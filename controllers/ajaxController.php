@@ -18,7 +18,7 @@ class AjaxController extends Controller
 
     public function search_clients()
     {
-        $data = array();
+        $data =[];
         $user = new UsersModels();
         $user->setLoggedUser();
         $clientes = new ClientsModels();
@@ -38,5 +38,7 @@ class AjaxController extends Controller
         }
 
         echo json_encode($data);
+        
+        
     }
 }

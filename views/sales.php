@@ -1,5 +1,5 @@
 <h1>Área de vendas</h1>
-
+<div class="button"><a href="<?php echo BASE_URL; ?>/sales/add">Adicionar Venda</a> </div>
 
 <table border ="0" width="100%">
     <tr>
@@ -20,7 +20,7 @@
             <td> <?php echo $sales_item['status']; ?></td>
             <td>R$ <?php echo number_format($sales_item['valor'], 2, ',', '.'); ?></td>
             <td></td>
-               
+
         </tr>
     <?php endforeach ?>
 </table>

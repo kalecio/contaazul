@@ -31,7 +31,7 @@
             <?php endforeach; ?>
         </select><br /><br />
 
-        <input type="submit" value="Adicionar" class="button button-Adicionar">
+        <input type="submit" value="Adicionar" >
 
     </form>
 </body>
