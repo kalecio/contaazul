@@ -341,16 +341,17 @@
     }
 
     .searchresults {
-        width: 280px;
-        height: 184px;
+        width: 400px;
+        height: 310px;
         background-color: #fff;
-        position: absolute;
-        border: 1px solid #CCC;
+        position: static;
+        border: 2px solid #CCC;
+        margin: 1px
     }
 
     .si {
-        height: 20px;
-        line-height: 20px;
+        height: 30px;
+        line-height: 37px;
         padding-left: 10px;
         cursor: pointer;
     }
@@ -359,8 +360,9 @@
         color: #000;
         text-decoration: none;
         display: block;
+        
     }
 
     .si:hover {
-        background-color: #EEE;
+        background-color: #e43589;
     }
