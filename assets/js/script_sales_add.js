@@ -1,9 +1,36 @@
+function selectClient(obj) {
+    var id = $(obj).attr('data-id');
+    var name = $(obj).html();
+
+    $('.searchresults').hide();
+    $('#client_name').val(name);
+    $('#client_name').attr('data_id', id);
+}
+
 $(function () {
+
+    $('.clientAdd_button').on('click', function () {
+        var name = $('#client_name').val();
+        if (name != '' && name.length >= 4) {
+            if (confirm('Você deseja adicionar um cliente?' + name + '?')) {
+               $.ajax({
+                    url:BASE_URL+'/ajax/add_client',
+                    type:'POST',
+                    data:{name: name},
+                    datatype:'json',
+                    success:function(json){
+                           $('.searchresults').hide();
+                           $('#client_name').attr('data_id', json.id);
+
+                    }
+               });
+            }
+
+        }
+    });
     $('#client_name').on('keyup', function () {
         var datatype = $(this).attr('data-type');
         var busca = $(this).val();
-
-
         if (datatype != '') {
             $.ajax({
                 url: BASE_URL + '/ajax/' + datatype,
@@ -27,7 +54,6 @@ $(function () {
 
 
             });
-
         }
 
     });

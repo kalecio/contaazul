@@ -45,7 +45,7 @@
             <table border="0" width="100%">
                 <tr>
                     <th>Nome da Permissão</th>
-                    <th width="100%">Ações</th>
+                    <th>Ações</th>
                 </tr>
                 <?php foreach ($permissions_list as $p) : ?>
                     <tr>
