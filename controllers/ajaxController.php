@@ -1,8 +1,10 @@
 <?php
 
-class AjaxController extends Controller {
+class AjaxController extends Controller
+{
 
-    public function __construct() /* função para importa o banco de dados */ {
+    public function __construct() /* função para importa o banco de dados */
+    {
         parent::__construct();
         $user = new UsersModels();
         if ($user->isLogged() == false) {
@@ -11,11 +13,12 @@ class AjaxController extends Controller {
         }
     }
 
-    public function index() {
-        
+    public function index()
+    {
     }
 
-    public function search_clients() {
+    public function search_clients()
+    {
         $data = [];
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -37,7 +40,8 @@ class AjaxController extends Controller {
         echo json_encode($data);
     }
 
-    public function add_client() {
+    public function add_client()
+    {
         $data = [];
         $user = new UsersModels();
         $user->setLoggedUser();
@@ -45,16 +49,9 @@ class AjaxController extends Controller {
 
         if (isset($_POST['name']) && !empty($_POST['name'])) {
 
-            $busca = addslashes($_POST['name']);
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            $clientesBusca = $clientes->searchClientByname($busca, $user->getCompany());
-            foreach ($clientesBusca as $citem) {
-                $data[] = array(
-                    'name' => $citem['name'],
-                    'link' => BASE_URL . '/clients/edit/' . $citem['id']
-                );
-            }
+            $data['id'] = $clientes->add($user->getCompany(), $name);
         }
     }
-
 }

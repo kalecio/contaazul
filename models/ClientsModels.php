@@ -1,8 +1,10 @@
 <?php
 
-class ClientsModels extends Model {
+class ClientsModels extends Model
+{
 
-    public function getList($offset, $id_company) {
+    public function getList($offset, $id_company)
+    {
         $array = [];
 
         $sql = $this->db->prepare("SELECT * FROM clients WHERE id_company = :id_company LIMIT $offset, 10");
@@ -16,7 +18,8 @@ class ClientsModels extends Model {
         return $array;
     }
 
-    public function getInfo($id, $id_company) {        // função e busca e segurança para não apagar nenhum usuário que não seja o correto
+    public function getInfo($id, $id_company)
+    {        // função e busca e segurança para não apagar nenhum usuário que não seja o correto
         $array = [];
         $sql = $this->db->prepare("SELECT * FROM clients WHERE id = :id AND id_company  = :id_company");
         $sql->bindValue(":id", $id);
@@ -29,7 +32,8 @@ class ClientsModels extends Model {
         return $array;
     }
 
-    public function getCount($id_company) {
+    public function getCount($id_company)
+    {
         $r = 0;
 
         $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM clients WHERE id_company = :id_company");
@@ -42,7 +46,8 @@ class ClientsModels extends Model {
         return $r;
     }
 
-    public function add($id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country) {
+    public function add($id_company, $name, $email = null, $phone = null, $stars = '3', $internal_obs = null, $address_zipcode = null, $address = null, $address_number = null, $address_neighb = null, $address_city = null, $address_state = null, $address_country = null)
+    {
         $sql = $this->db->prepare("INSERT INTO clients SET 
             id_company = :id_company,
             name  = :name,
@@ -74,13 +79,12 @@ class ClientsModels extends Model {
         $sql->bindValue(":stars", $stars);
         $sql->bindValue(":internal_obs", $internal_obs);
         $sql->execute();
-        // echo "<pre>";
-        // var_dump($id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country);
-        // echo "</pre>";
-        // die();
+
+        return $this->db->lastInsertId();
     }
 
-    public function edit($id, $id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country) {
+    public function edit($id, $id_company, $name, $email, $phone, $stars, $internal_obs, $address_zipcode, $address, $address_number, $address_neighb, $address_city, $address_state, $address_country)
+    {
         $sql = $this->db->prepare("UPDATE  clients SET 
             id_company = :id_company,
             name  = :name,
@@ -117,7 +121,8 @@ class ClientsModels extends Model {
         $sql->execute();
     }
 
-    public function searchClientByname($name, $id_company) {
+    public function searchClientByname($name, $id_company)
+    {
 
         $array = [];
         $sql = $this->db->prepare("SELECT  name, id FROM clients WHERE name LIKE :name LIMIT 10");
@@ -131,5 +136,4 @@ class ClientsModels extends Model {
         }
         return $array;
     }
-
 }

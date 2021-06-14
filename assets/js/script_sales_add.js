@@ -8,22 +8,24 @@ function selectClient(obj) {
 }
 
 $(function () {
-
-    $('.clientAdd_button').on('click', function () {
+    $('input[name=total_price]').mask('000.000.000.000.000,00', {reverse: true, placeholder: "00,00"});
+    $('.clientAdd_button').on('click', function (e) {
+        e.preventDefault();
         var name = $('#client_name').val();
         if (name != '' && name.length >= 4) {
-            if (confirm('Você deseja adicionar um cliente?' + name + '?')) {
-               $.ajax({
-                    url:BASE_URL+'/ajax/add_client',
-                    type:'POST',
-                    data:{name: name},
-                    datatype:'json',
-                    success:function(json){
-                           $('.searchresults').hide();
-                           $('#client_name').attr('data_id', json.id);
+            if (confirm('Você deseja adicionar um cliente   ' + name + '   ?   ')) {
+                $.ajax({
+                    url: BASE_URL + '/ajax/add_client',
+                    type: 'POST',
+                    data: {name: name},
+                    datatype: 'json',
+                    success: function (json) {
+                        $('.searchresults').hide();
+                        $('#client_name').attr('data_id', json.id);
 
                     }
-               });
+                });
+                return false;
             }
 
         }
