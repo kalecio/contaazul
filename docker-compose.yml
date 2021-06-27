@@ -16,9 +16,9 @@ services:
             - '3306:3306'
         environment: 
             MYSQL_DATABASE: meudb
-            MYSQL_USER: savio
-            MYSQL_PASSWORD: 1234
-            MYSQL_ROOT_PASSWORD: 12345
+            MYSQL_USER: root
+            MYSQL_PASSWORD: 
+            MYSQL_ROOT_PASSWORD: 
             
 volumes: 
     db_data:
