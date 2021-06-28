@@ -6,7 +6,7 @@ services:
         ports: 
             - '8000:80'
         volumes: 
-            -  ./:/var/www/contaazul
+            -  ./:/var/www/html
         networks:
             - default
     db:
